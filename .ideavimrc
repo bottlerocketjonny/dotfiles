@@ -1,0 +1,58 @@
+let mapleader = " "
+
+" plugins
+set number relativenumber
+set idearefactormode=keep
+set ideajoin
+set surround
+set easymotion
+set showmode
+set incsearch
+set commentary
+set highlightedyank
+
+" nerdtree
+set NERDTree
+let g:NERDTreeMapActivateNode='l'
+let g:NERDTreeMapJumpParent='h'
+
+" enter/shift-enter
+noremap <Esc> <nop>
+nmap <S-Enter> O<Esc>
+nmap <CR> o<Esc>
+
+" move line up/down
+nnoremap <M-j> :m +1<CR>
+nnoremap <M-k> :m -2<CR>
+inoremap <M-j> <Esc>:m +1<CR>gi
+inoremap <M-k> <Esc>:m -2<CR>gi
+
+" system clipboard
+vmap <leader>y "+y
+vmap <leader>d "+d
+nmap <leader>y "+yy
+nmap <leader>p "+p
+nmap <leader>P "+P
+vmap <leader>p "+p
+vmap <leader>P "+P
+
+" scrolling
+nmap <leader>d <C-d>zz
+nmap <leader>u <C-u>zz
+vmap <leader>d <C-d>zz
+vmap <leader>u <C-u>zz
+
+" actions
+nmap <leader>h <Action>(PreviousTab)
+nmap <leader>l <Action>(NextTab)
+nmap <leader>q <Action>(CloseEditor)
+nmap <leader>g <Action>(Generate)
+nmap <leader>m <Action>(Git.Menu)
+nmap <leader>s <Action>(QuickChangeScheme)
+nmap <leader>e <Action>(GotoNextError)
+nmap <leader>d <Action>(ShowErrorDescription)
+nmap <leader>r <Action>(RenameElement)
+nmap <leader>f <Action>(GotoFile)
+nmap <c-z> <Action>(ToggleZenMode)
+nmap [[ <Action>(MethodUp)
+nmap ]] <Action>(MethodDown)
