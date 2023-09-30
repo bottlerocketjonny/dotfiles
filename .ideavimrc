@@ -56,3 +56,12 @@ nmap <leader>f <Action>(GotoFile)
 nmap <c-z> <Action>(ToggleZenMode)
 nmap [[ <Action>(MethodUp)
 nmap ]] <Action>(MethodDown)
+
+" split window navigation
+nmap <c-\> <Action>(SplitVertically)
+nmap <c--> <Action>(SplitHorizontally)
+nmap <c-m> <Action>(MoveEditorToOppositeTabGroup)
+nmap <c-h> <c-w>h
+nmap <c-l> <c-w>l
+nmap <c-j> <c-w>j
+nmap <c-k> <c-w>k
