@@ -49,8 +49,8 @@ inoremap <A-k> <Esc>:m -2<CR>gi
 inoremap jk <Esc>
 
 " Tab navigation
-nnoremap <A-n> :tabnext<CR>
-nnoremap <A-p> :tabprev<CR>
+nnoremap <A-l> :tabnext<CR>
+nnoremap <A-h> :tabprev<CR>
 
 " Pane navigation
 nnoremap <C-h> <C-w>h
