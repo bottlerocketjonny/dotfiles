@@ -109,6 +109,7 @@ map <leader>df <action>(ToggleFullScreen)
 " Actions
 map <leader>am <action>(ShowIntentionActions)
 map <leader>as <action>(SearchEverywhere)
+map <leader>gg <action>(Generate)
 
 " File navigation
 map <leader>ff <action>(GotoFile)
@@ -128,7 +129,6 @@ map <leader>rv <Action>(IntroduceVariable)
 map <leader>rf <Action>(IntroduceField)
 map <leader>rs <Action>(ChangeSignature)
 map <leader>rr <Action>(Refactorings.QuickListPopupAction)
-map <leader>rg <Action>(Generate)
 
 " Go to code
 nmap <leader>gd <Action>(GotoDeclaration)
