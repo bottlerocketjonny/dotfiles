@@ -53,10 +53,10 @@ nnoremap <A-n> :tabnext<CR>
 nnoremap <A-p> :tabprev<CR>
 
 " Pane navigation
-nnoremap <A-h> <C-w>h
-nnoremap <A-l> <C-w>l
-nnoremap <A-k> <C-w>k
-nnoremap <A-j> <C-w>j
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+nnoremap <C-k> <C-w>k
+nnoremap <C-j> <C-w>j
 
 " Jump between methods
 nnoremap [[ <Action>(MethodUp)
@@ -128,6 +128,7 @@ map <leader>rv <Action>(IntroduceVariable)
 map <leader>rf <Action>(IntroduceField)
 map <leader>rs <Action>(ChangeSignature)
 map <leader>rr <Action>(Refactorings.QuickListPopupAction)
+map <leader>rg <Action>(Generate)
 
 " Go to code
 nmap <leader>gd <Action>(GotoDeclaration)
@@ -200,6 +201,7 @@ let g:WhichKeyDesc_refactoring_variable = "<leader>rv Introduce variable"
 let g:WhichKeyDesc_refactoring_field = "<leader>rf Introduce field"
 let g:WhichKeyDesc_refactoring_signature = "<leader>rs Change signature"
 let g:WhichKeyDesc_refactoring_all = "<leader>rr Open refactorings list"
+let g:WhichKeyDesc_refactoring_generate = "<leader>rg Generate"
 
 let g:WhichKeyDesc_goto = "<leader>g Go to X"
 let g:WhichKeyDesc_goto_declaration = "<leader>gd Go to Definition"
