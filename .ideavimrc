@@ -59,8 +59,8 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-j> <C-w>j
 
 " Jump between methods
-nnoremap [[ <Action>(MethodUp)
-nnoremap ]] <Action>(MethodDown)
+map [[ <Action>(MethodUp)
+map ]] <Action>(MethodDown)
 
 " Easy visual indentation
 vnoremap < <gv
