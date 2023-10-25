@@ -110,6 +110,8 @@ map <leader>df <action>(ToggleFullScreen)
 map <leader>am <action>(ShowIntentionActions)
 map <leader>as <action>(SearchEverywhere)
 map <leader>gg <action>(Generate)
+" map <leader>rt <action>(Rerun)
+map <leader>rt <action>(RunClass)
 
 " File navigation
 map <leader>ff <action>(GotoFile)
