@@ -35,6 +35,11 @@ set notimeout
 "" Key mappings
 "" ========================================================
 
+" CamelCase word navigation
+ map w [w
+ map e ]w
+ map b [b
+
 " Enter/shift-enter
 noremap <Esc> <nop>
 nmap <S-Enter> O<Esc>
