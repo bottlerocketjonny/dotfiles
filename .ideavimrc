@@ -8,7 +8,8 @@ set showmode
 set showcmd
 
 set incsearch
-set hlsearch
+" set hlsearch
+set ignorecase
 set smartcase
 
 set clipboard+=unnamed
@@ -70,8 +71,8 @@ vnoremap > >gv
 nnoremap qj @q
 
 " Popup navigation
-inoremap <C-j> <Action>(PopupMenu-selectNext)
-inoremap <C-k> <Action>(PopupMenu-selectPrev)
+" nnoremap <C-j> <Action>(PopupMenu-selectNext)
+" nnoremap <C-k> <Action>(PopupMenu-selectPrev)
 
 "" Leader commands
 "" ========================================================
