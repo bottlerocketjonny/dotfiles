@@ -1,0 +1,52 @@
+* {
+    color:#f2f2f2;
+    background-color:#0000;
+    background:#885e5e5e;
+}
+#window {
+    background-color:@background;
+    border-color:#F88137;
+    border:2;
+    padding:4;
+}
+#message {
+    border:2;
+    padding:4;
+}
+#listview {
+    fixed-height:0;
+    scrollbar:true;
+}
+#element {
+    padding:4;
+    margin:0 4;
+}
+#element.selected.normal {
+    background-color:#F88137;
+    text-color:white;
+}
+element-icon {
+  size:2ch;
+}
+#scrollbar {
+    handle-color:#F88137;
+    handle-width:4px;
+}
+#button {
+    spacing:4;
+}
+#button.selected {
+    background-color:#F88137;
+}
+#inputbar {
+    background-color:#0000;
+    padding:4;
+    margin:4;
+}
+#inputbar {
+    children:[prompt,textbox-prompt-colon,entry,case-indicator];
+}
+#textbox-prompt-colon {
+    expand:    false;
+    str:       ":";
+}
