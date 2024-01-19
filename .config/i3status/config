@@ -1,0 +1,40 @@
+# i3status configuration file.
+# see "man i3status" for documentation.
+
+# It is important that this file is edited as UTF-8.
+# The following line should contain a sharp s:
+# ß
+# If the above line is not correctly displayed, fix your editor first!
+
+general {
+    output_format = "i3bar"
+    colors = true
+    interval = 5
+}
+
+order += "disk /"
+order += "load"
+order += "memory"
+order += "time"
+
+# Disk Usage (for root directory)
+disk "/" {
+    format = " Disk: %free "
+}
+
+# CPU Load
+load {
+    format = " Load: %1min "
+}
+
+# Memory Usage
+memory {
+    format = " Mem: %used/%total "
+    threshold_degraded = "2G"
+    format_degraded = " MEM: %used/%total (HIGH) "
+}
+
+# Time and Date
+time {
+    format = " %Y-%m-%d %H:%M:%S "
+}
