@@ -235,7 +235,6 @@ bindsym $mod+r mode "resize"
 bar {
   status_command i3status -c ~/.config/i3status/config
   position top
-  tray_output eDP-1-0
   tray_output HDMI-0
   colors {
       # background #222222
@@ -262,6 +261,7 @@ exec /home/jonny/.cargo/bin/alacritty
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id gtk-launch ~/.gtkrc-2.0
 exec --no-startup-id gtk-launch ~/.config/gtk-3.0/settings.ini
+
 exec --no-startup-id numlockx on
 
 exec --no-startup-id sh -c 'sleep 2; i3-msg workspace number 1'
