@@ -148,17 +148,28 @@ bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
-# Number pad bindings
-bindcode $mod+87 workspace number $ws1
-bindcode $mod+88 workspace number $ws2
-bindcode $mod+89 workspace number $ws3
-bindcode $mod+83 workspace number $ws4
-bindcode $mod+84 workspace number $ws5
-bindcode $mod+85 workspace number $ws6
-bindcode $mod+79 workspace number $ws7
-bindcode $mod+80 workspace number $ws8
-bindcode $mod+81 workspace number $ws9
-bindcode $mod+90 workspace number $ws10
+# Number pad bindings with Num Lock on or off
+bindsym $mod+KP_End workspace number $ws1
+bindsym $mod+KP_Down workspace number $ws2
+bindsym $mod+KP_Page_Down workspace number $ws3
+bindsym $mod+KP_Left workspace number $ws4
+bindsym $mod+KP_Begin workspace number $ws5
+bindsym $mod+KP_Right workspace number $ws6
+bindsym $mod+KP_Home workspace number $ws7
+bindsym $mod+KP_Up workspace number $ws8
+bindsym $mod+KP_Page_Up workspace number $ws9
+bindsym $mod+KP_Insert workspace number $ws10
+
+bindsym $mod+Mod2+KP_1 workspace number $ws1
+bindsym $mod+Mod2+KP_2 workspace number $ws2
+bindsym $mod+Mod2+KP_3 workspace number $ws3
+bindsym $mod+Mod2+KP_4 workspace number $ws4
+bindsym $mod+Mod2+KP_5 workspace number $ws5
+bindsym $mod+Mod2+KP_6 workspace number $ws6
+bindsym $mod+Mod2+KP_7 workspace number $ws7
+bindsym $mod+Mod2+KP_8 workspace number $ws8
+bindsym $mod+Mod2+KP_9 workspace number $ws9
+bindsym $mod+Mod2+KP_0 workspace number $ws10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
