@@ -196,6 +196,9 @@ assign [class="KeePassXC"] $ws7
 assign [class="Postman"] $ws8
 assign [class="Blueman-manager"] $ws9
 
+# focus windows automatically, say if you open a browser link
+focus_on_window_activation focus
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -265,3 +268,4 @@ exec --no-startup-id gtk-launch ~/.config/gtk-3.0/settings.ini
 exec --no-startup-id numlockx on
 
 exec --no-startup-id sh -c 'sleep 2; i3-msg workspace number 1'
+
