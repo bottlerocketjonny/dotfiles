@@ -75,15 +75,16 @@ plugins=(
     zsh-autosuggestions
   )
 
-# fzf!
-source /usr/share/doc/fzf/examples/key-bindings.zsh
-source /usr/share/doc/fzf/examples/completion.zsh
 
 source $ZSH/oh-my-zsh.sh
 
 bindkey -v
 
 bindkey -s ^f "tmux-sessionizer\n"
+
+# fzf!
+source /usr/share/doc/fzf/examples/key-bindings.zsh
+source /usr/share/doc/fzf/examples/completion.zsh
 
 # User configuration
 
