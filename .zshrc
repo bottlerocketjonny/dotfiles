@@ -81,6 +81,10 @@ source /usr/share/doc/fzf/examples/completion.zsh
 
 source $ZSH/oh-my-zsh.sh
 
+bindkey -v
+
+bindkey -s ^f "tmux-sessionizer\n"
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
