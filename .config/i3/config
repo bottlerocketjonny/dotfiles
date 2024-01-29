@@ -119,10 +119,10 @@ set $ws3 "3: editor 1"
 set $ws4 "4: editor 2"
 set $ws5 "5: database"
 set $ws6 "6: chat"
-set $ws7 "7: pass"
-set $ws8 "8: postman"
-set $ws9 "9: utils"
-set $ws10 "10: other"
+set $ws7 "7: chat 2"
+set $ws8 "8: pass"
+set $ws9 "9: postman"
+set $ws10 "10: utils"
 
 # Assign workspaces to specific monitors
 workspace 1 output HDMI-0
@@ -131,9 +131,9 @@ workspace 3 output HDMI-0
 workspace 4 output eDP-1-0
 workspace 5 output HDMI-0
 workspace 6 output HDMI-0
-workspace 7 output eDP-1-0
-workspace 8 output HDMI-0
-workspace 9 output eDP-1-0
+workspace 7 output HDMI-0
+workspace 8 output eDP-1-0
+workspace 9 output HDMI-0
 workspace 10 output eDP-1-0
 
 # switch to workspace
@@ -187,14 +187,15 @@ assign [class="Brave-browser"] $ws1
 assign [class="Alacritty"] $ws2
 assign [class="Gnome-terminal"] $ws2
 assign [class="jetbrains-idea"] $ws3
-for_window [title="Services"] move container to workspace $ws4
+for_window [title="Services - "] move container to workspace $ws4
 assign [class="jetbrains-datagrip"] $ws5
 assign [class="Slack"] $ws6
+for_window [title="Huddle: "] move container to workspace $ws7
 assign [class="zoom"] $ws6
 assign [class="discord"] $ws6
-assign [class="KeePassXC"] $ws7
-assign [class="Postman"] $ws8
-assign [class="Blueman-manager"] $ws9
+assign [class="KeePassXC"] $ws8
+assign [class="Postman"] $ws9
+assign [class="Blueman-manager"] $ws10
 
 # focus windows automatically, say if you open a browser link
 focus_on_window_activation focus
