@@ -86,6 +86,8 @@ bindkey -s ^f "tmux-sessionizer\n"
 source /usr/share/doc/fzf/examples/key-bindings.zsh
 source /usr/share/doc/fzf/examples/completion.zsh
 
+alias standup='~/notes/standup/standup-bash'
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
