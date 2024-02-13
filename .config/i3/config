@@ -203,6 +203,7 @@ assign [class="Gnome-system-monitor"] $ws10
 
 # focus windows automatically, say if you open a browser link
 focus_on_window_activation focus
+focus_follows_mouse no
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
