@@ -1,7 +1,7 @@
 * {
     color:#f2f2f2;
     background-color:#0000;
-    background:#885e5e5e;
+    background:#333333;
 }
 #window {
     background-color:@background;
