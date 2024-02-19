@@ -20,10 +20,10 @@ set visualbell
 "" ========================================================
 
 set idearefactormode=keep
+" set sneak
 set surround
 set ideajoin
 set highlightedyank
-set sneak
 
 set NERDTree
 let g:NERDTreeMapActivateNode='l'
@@ -92,10 +92,10 @@ nnoremap qj @q
 "" ========================================================
 
 " Scrolling
-nmap <leader>d <C-d>zz
-nmap <leader>u <C-u>zz
-vmap <leader>d <C-d>zz
-vmap <leader>u <C-u>zz
+nmap <C-d> <C-d>zz
+nmap <C-u> <C-u>zz
+vmap <C-d> <C-d>zz
+vmap <C-u> <C-u>zz
 
 " Comment lines
 map <leader>c <action>(CommentByLineComment)
