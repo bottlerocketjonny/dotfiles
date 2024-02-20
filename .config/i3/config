@@ -205,6 +205,9 @@ assign [class="Gnome-system-monitor"] $ws10
 focus_on_window_activation focus
 focus_follows_mouse no
 
+# alt tab-like behavior
+bindsym Mod1+Tab workspace back_and_forth
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
