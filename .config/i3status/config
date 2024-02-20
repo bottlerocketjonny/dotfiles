@@ -14,10 +14,10 @@ general {
     interval = 5
 }
 
-order += "disk /"
+# order += "disk /"
 order += "load"
 order += "memory"
-order += "volume master"
+# order += "volume master"
 order += "battery 0"
 order += "time"
 
