@@ -68,10 +68,10 @@ nnoremap <A-l> :tabnext<CR>
 nnoremap <A-h> :tabprev<CR>
 
 " Pane navigation
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
-nnoremap <C-k> <C-w>k
-nnoremap <C-j> <C-w>j
+" nnoremap <C-h> <C-w>h
+" nnoremap <C-l> <C-w>l
+" nnoremap <C-k> <C-w>k
+" nnoremap <C-j> <C-w>j
 
 " Jump between methods
 map [[ <Action>(MethodUp)
@@ -85,8 +85,8 @@ vnoremap > >gv
 nnoremap qj @q
 
 " Popup navigation
-" nnoremap <C-j> <Action>(PopupMenu-selectNext)
-" nnoremap <C-k> <Action>(PopupMenu-selectPrev)
+nnoremap <C-j> <Action>(PopupMenu-selectNext)
+nnoremap <C-k> <Action>(PopupMenu-selectPrev)
 
 "" Leader commands
 "" ========================================================
@@ -101,7 +101,7 @@ vmap <C-u> <C-u>zz
 map <leader>c <action>(CommentByLineComment)
 
 " Jump around with easymotion
-map <leader>j <Plug>(easymotion-s)
+map s <Plug>(easymotion-s)
 
 " Open NERDTree (use q to exit)
 map <leader>x :NERDTreeToggle<CR>
