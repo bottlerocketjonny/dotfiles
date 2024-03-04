@@ -85,8 +85,8 @@ vnoremap > >gv
 nnoremap qj @q
 
 " Popup navigation
-nnoremap <C-j> <Action>(PopupMenu-selectNext)
-nnoremap <C-k> <Action>(PopupMenu-selectPrev)
+" nnoremap <C-j> <Action>(PopupMenu-selectNext)
+" nnoremap <C-k> <Action>(PopupMenu-selectPrev)
 
 "" Leader commands
 "" ========================================================
@@ -161,11 +161,11 @@ map <leader>gs <Action>(ActivateVersionControlToolWindow)
 map <leader>gb <Action>(Git.Branches)
 
 " Errors
-map <leader>en <Action>(ReSharperGotoNextErrorInSolution)
-map <leader>ep <Action>(ReSharperGotoPrevErrorInSolution)
+map <leader>en <Action>(GotoNextError)
+map <leader>ep <Action>(GotoPreviousError)
 
 " Which-key settings
-set which-key
+" set which-key
 let g:WhichKey_FontSize = "17"
 let g:WhichKey_FontFamily = "JetBrains Mono"
 let g:WhichKey_PrefixColor = "#55BADD"
@@ -177,8 +177,7 @@ let g:WhichKeyDesc_leader = "<leader>x Open file explorer"
 
 let g:WhichKeyDesc_leader = "<leader>s Open services"
 
-let g:WhichKeyDesc_easymotion = "<leader>j Jump with Easymotion"
-let g:WhichKeyDesc_easymotion_prefix = "<leader><leader>"
+let g:WhichKeyDesc_easymotion = "s Jump with Easymotion"
 
 let g:WhichKeyDesc_comment = "<leader>c Comment line"
 
