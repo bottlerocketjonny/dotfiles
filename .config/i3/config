@@ -296,5 +296,8 @@ exec_always --no-startup-id sh -c 'sleep 2; picom --config ~/.config/picom/picom
 
 exec --no-startup-id numlockx on
 
-exec --no-startup-id sh -c 'sleep 2; i3-msg workspace number 1'
+exec --no-startup-id sh -c 'sleep 2; i3-msg workspace number 3'
+
+# disable screensaver
+exec --no-startup-id xset s off
 
