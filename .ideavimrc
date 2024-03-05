@@ -30,6 +30,7 @@ let g:NERDTreeMapActivateNode='l'
 let g:NERDTreeMapJumpParent='h'
 
 set easymotion
+let g:EasyMotion_do_mapping = 0
 set notimeout
 
 " Harpoon
@@ -104,7 +105,7 @@ map <leader>c <action>(CommentByLineComment)
 map s <Plug>(easymotion-s)
 
 " Open NERDTree (use q to exit)
-map <leader>x :NERDTreeToggle<CR>
+map <leader>e :NERDTreeToggle<CR>
 
 " Folding
 map <leader>zc :action CollapseAllRegions<CR>
