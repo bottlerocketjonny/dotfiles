@@ -88,6 +88,9 @@ source /usr/share/doc/fzf/examples/completion.zsh
 
 alias standup='~/notes/standup/standup-bash'
 
+# sdkman
+source "$HOME/.sdkman/bin/sdkman-init.sh"
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"

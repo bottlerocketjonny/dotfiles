@@ -98,6 +98,9 @@ nmap <C-u> <C-u>zz
 vmap <C-d> <C-d>zz
 vmap <C-u> <C-u>zz
 
+" Change method name
+map cm vf)c<Esc>a
+
 " Comment lines
 map <leader>c <action>(CommentByLineComment)
 
