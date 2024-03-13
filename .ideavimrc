@@ -14,12 +14,20 @@ set smartcase
 
 set clipboard+=unnamed
 
+" Paste from global
+nnoremap <leader>p "+p
+xnoremap <leader>p "+p
+
+" Copy into global
+nnoremap <leader>y "+y
+xnoremap <leader>y "+y
+
 set visualbell
 
 " Plugins
 "" ========================================================
 
-set idearefactormode=keep
+set idearefactormode=visual
 " set sneak
 set surround
 set ideajoin
@@ -89,6 +97,10 @@ nnoremap qj @q
 " nnoremap <C-j> <Action>(PopupMenu-selectNext)
 " nnoremap <C-k> <Action>(PopupMenu-selectPrev)
 
+"^$ The symbol is too hard to press
+map gh ^
+map gl $
+
 "" Leader commands
 "" ========================================================
 
@@ -98,8 +110,8 @@ nmap <C-u> <C-u>zz
 vmap <C-d> <C-d>zz
 vmap <C-u> <C-u>zz
 
-" Change method name
-map cm vf)c<Esc>a
+" Change around method name
+map cam vf)c<Esc>a
 
 " Comment lines
 map <leader>c <action>(CommentByLineComment)
@@ -129,6 +141,7 @@ map <leader>df <action>(ToggleFullScreen)
 " map <leader>am <action>(ShowIntentionActions)
 " map <leader>as <action>(SearchEverywhere)
 map <leader>gg <action>(Generate)
+map <leader>ra <action>(ChooseRunConfiguration)
 map <leader>rt <action>(RunClass)
 
 " File navigation
