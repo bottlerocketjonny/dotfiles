@@ -2,6 +2,7 @@
   "extras": [
     "lazyvim.plugins.extras.coding.tabnine",
     "lazyvim.plugins.extras.dap.core",
+    "lazyvim.plugins.extras.lang.go",
     "lazyvim.plugins.extras.lang.markdown",
     "lazyvim.plugins.extras.lang.typescript",
     "lazyvim.plugins.extras.linting.eslint"
@@ -9,5 +10,5 @@
   "news": {
     "NEWS.md": "2123"
   },
-  "version": 2
+  "version": 3
 }

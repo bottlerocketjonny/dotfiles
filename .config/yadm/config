@@ -1,0 +1,8 @@
+[user]
+    name = Jonny Coddington
+    email = bottlerocketjonny@protonmail.com
+
+[pull]
+	rebase = false
+[advice]
+	addIgnoredFile = false

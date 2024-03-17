@@ -189,6 +189,7 @@ assign [class="Alacritty"] $ws2
 assign [class="Gnome-terminal"] $ws2
 assign [class="jetbrains-idea"] $ws3
 for_window [title="Services - "] move container to workspace $ws4
+for_window [title="Run - "] move container to workspace $ws4
 assign [class="jetbrains-datagrip"] $ws5
 assign [class="Slack"] $ws6
 # TODO fix this
@@ -205,6 +206,9 @@ assign [class="Gnome-system-monitor"] $ws10
 # focus windows automatically, say if you open a browser link
 focus_on_window_activation focus
 focus_follows_mouse no
+
+# intellij settings cos its weird
+for_window [class="^jetbrains-.+" title="win0"] floating enable;
 
 # zoom settings cos its weird
 for_window [class="zoom"] [title="Zoom Meeting"] move container to workspace $ws7
