@@ -91,27 +91,22 @@ alias standup='~/notes/standup/standup-bash'
 # sdkman
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-# User configuration
+# GO
+export PATH=$PATH:~/go/bin
 
-# export MANPATH="/usr/local/man:$MANPATH"
+precmd() {
+  # Try to find the Git repository root
+  local git_root=$(git rev-parse --show-toplevel 2> /dev/null)
+  
+  # If in a Git repository, use its root, otherwise use the current directory
+  if [[ -n $git_root ]]; then
+    echo "$git_root" >| ~/.last_dir
+  else
+    echo "$(pwd)" >| ~/.last_dir
+  fi
+}
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
+# Change to the last directory (or Git root) when opening a new terminal, if it exists
+if [[ -f ~/.last_dir ]]; then
+  cd "$(cat ~/.last_dir)"
+fi
