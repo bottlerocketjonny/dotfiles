@@ -92,21 +92,7 @@ alias standup='~/notes/standup/standup-bash'
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # GO
+export PATH="/usr/bin:$PATH"
+
+export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:~/go/bin
-
-precmd() {
-  # Try to find the Git repository root
-  local git_root=$(git rev-parse --show-toplevel 2> /dev/null)
-  
-  # If in a Git repository, use its root, otherwise use the current directory
-  if [[ -n $git_root ]]; then
-    echo "$git_root" >| ~/.last_dir
-  else
-    echo "$(pwd)" >| ~/.last_dir
-  fi
-}
-
-# Change to the last directory (or Git root) when opening a new terminal, if it exists
-if [[ -f ~/.last_dir ]]; then
-  cd "$(cat ~/.last_dir)"
-fi
