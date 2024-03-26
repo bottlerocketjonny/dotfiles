@@ -96,3 +96,4 @@ export PATH="/usr/bin:$PATH"
 
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:~/go/bin
+[[ -f ~/.last_dir ]] && cd "$(cat ~/.last_dir)"

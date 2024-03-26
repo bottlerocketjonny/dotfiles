@@ -208,7 +208,9 @@ focus_on_window_activation focus
 focus_follows_mouse no
 
 # intellij settings cos its weird
-for_window [class="^jetbrains-.+" title="win0"] floating enable;
+for_window [class="^jetbrains-.+" title="win0"] floating enable
+for_window [class="jetbrains-idea" title="splash"] move scratchpad
+for_window [class="jetbrains-idea" title=".*approved.*"] move to workspace $ws3, fullscreen enable
 
 # zoom settings cos its weird
 for_window [class="zoom"] [title="Zoom Meeting"] move container to workspace $ws7
