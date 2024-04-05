@@ -296,15 +296,15 @@ bindsym $mod+shift+x exec i3lock
 # Open programs on startup
 exec brave-browser
 exec keepassxc
-exec /home/jonny/.cargo/bin/alacritty
+exec /home/jonny/.cargo/bin/alacritty -e tmux
 
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id gtk-launch ~/.gtkrc-2.0
 exec --no-startup-id gtk-launch ~/.config/gtk-3.0/settings.ini
 
 # bing wallpaper & picom 
-# exec --no-startup-id sh -c 'sleep 2; ./get-wallpaper'
-# exec_always --no-startup-id sh -c 'sleep 2; picom --config ~/.config/picom/picom.conf'
+exec --no-startup-id sh -c 'sleep 2; ./get-wallpaper'
+exec_always --no-startup-id sh -c 'sleep 2; picom --config ~/.config/picom/picom.conf'
 
 exec --no-startup-id numlockx on
 
