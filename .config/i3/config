@@ -117,7 +117,7 @@ set $ws1 "1: browser"
 set $ws2 "2: terminal"
 set $ws3 "3: editor 1"
 set $ws4 "4: editor 2"
-set $ws5 "5: database"
+set $ws5 "5: db"
 set $ws6 "6: chat"
 set $ws7 "7: chat 2"
 set $ws8 "8: pass"
@@ -202,6 +202,7 @@ assign [class="Postman"] $ws9
 assign [class="bruno"] $ws9
 assign [class="Blueman-manager"] $ws10
 assign [class="Gnome-system-monitor"] $ws10
+assign [class="Spotify"] $ws10
 
 # focus windows automatically, say if you open a browser link
 focus_on_window_activation focus
@@ -258,7 +259,7 @@ bindsym $mod+r mode "resize"
 bar {
   output HDMI-0
   status_command i3status -c ~/.config/i3status/config
-  position top
+  position bottom
   tray_output HDMI-0
   colors {
       # background #222222
@@ -275,7 +276,7 @@ bar {
 bar {
   output eDP-1-0
   status_command i3status -c ~/.config/i3status/config
-  position top
+  position bottom
   tray_output eDP-1-0
   colors {
       # background #222222
@@ -302,8 +303,8 @@ exec --no-startup-id gtk-launch ~/.gtkrc-2.0
 exec --no-startup-id gtk-launch ~/.config/gtk-3.0/settings.ini
 
 # bing wallpaper & picom 
-exec --no-startup-id sh -c 'sleep 2; ./get-wallpaper'
-exec_always --no-startup-id sh -c 'sleep 2; picom --config ~/.config/picom/picom.conf'
+# exec --no-startup-id sh -c 'sleep 2; ./get-wallpaper'
+# exec_always --no-startup-id sh -c 'sleep 2; picom --config ~/.config/picom/picom.conf'
 
 exec --no-startup-id numlockx on
 
@@ -311,4 +312,5 @@ exec --no-startup-id sh -c 'sleep 2; i3-msg workspace number 3'
 
 # disable screensaver
 exec --no-startup-id xset s off
+exec --no-startup-id xset -dpms
 

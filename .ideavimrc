@@ -27,7 +27,7 @@ set visualbell
 " Plugins
 "" ========================================================
 
-set idearefactormode=visual
+set idearefactormode=keep
 " set sneak
 set surround
 set ideajoin
