@@ -191,6 +191,7 @@ assign [class="jetbrains-idea"] $ws3
 for_window [title="Services - "] move container to workspace $ws4
 for_window [title="Run - "] move container to workspace $ws4
 assign [class="jetbrains-datagrip"] $ws5
+assign [class="beekeeper-studio"] $ws5
 assign [class="Slack"] $ws6
 # TODO fix this
 # for_window [title="Huddle: "] move container to workspace $ws7
