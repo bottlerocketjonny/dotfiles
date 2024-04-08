@@ -19,7 +19,7 @@ order += "load"
 order += "memory"
 # order += "volume master"
 order += "battery 0"
-# order += "time"
+order += "time"
 
 # Disk Usage (for root directory)
 disk "/" {
