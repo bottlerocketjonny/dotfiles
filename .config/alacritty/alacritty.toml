@@ -8,4 +8,4 @@ padding = { x = 0, y = 0 }
 dynamic_padding = true
 
 [font]
-normal = { family = "JetBrainsMono", style = "Regular" }
+normal = { family = "JetBrains Mono Nerd Font", style = "Regular" }
