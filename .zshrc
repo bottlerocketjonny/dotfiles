@@ -87,6 +87,8 @@ source /usr/share/doc/fzf/examples/key-bindings.zsh
 source /usr/share/doc/fzf/examples/completion.zsh
 
 alias standup='~/notes/standup/standup-bash'
+alias notes='~/notes'
+alias config= '~/.config'
 
 # sdkman
 source "$HOME/.sdkman/bin/sdkman-init.sh"
@@ -100,3 +102,79 @@ export PATH=$PATH:~/go/bin
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# use fzf to checkout git branch
+function br() {
+  local branch
+  branch=$(git branch --all | grep -v HEAD | sed 's/^[ *]*//;s/[ *]*$//' | fzf +m) &&
+  git checkout $(echo "$branch" | sed "s#remotes/[^/]*/##")
+}
+
+# use fzf to switch or create a new worktree
+function wt() {
+  local action
+  local branch
+  local project_name
+  local worktree_path
+  local new_branch_name
+  local current_dir=$(pwd)
+
+  project_name=$(basename "$(git rev-parse --show-toplevel)")
+
+  echo "Select Action: [n] New Worktree, [c] Checkout existing worktree, [r] Checkout remote as worktree"
+  read action
+
+  case $action in
+    n|N)
+      echo "Enter new branch name:"
+      read new_branch_name
+      new_branch_name=$(echo "$new_branch_name" | tr '/' '-' | xargs)  # Replace slashes, trim whitespace
+
+      worktree_path="../${project_name}-wt-${new_branch_name}"
+
+      git worktree add "$worktree_path" -b "$new_branch_name"
+      echo "New worktree with branch '$new_branch_name' created at '$worktree_path'."
+      
+      cd "$worktree_path" || return
+      echo "Switched to the new worktree at '$worktree_path'."
+      ;;
+    c|C)
+      local worktrees=$(git worktree list | awk '{print $1}' | grep -v "^$current_dir$")
+      worktree_path=$(echo "$worktrees" | fzf +m --header="Select a worktree to checkout:")
+
+      if [ -z "$worktree_path" ]; then
+        echo "No worktree selected or available."
+      else
+        cd "$worktree_path" || return
+        echo "Switched to worktree at '$worktree_path'."
+      fi
+      ;;
+    r|R)
+      git fetch --all
+      local remote_branches=$(git branch -r | grep -v '\->' | sed 's/origin\///' | xargs -n1)
+
+      branch=$(echo "$remote_branches" | fzf +m --header="Select a remote branch to checkout:" | xargs)
+      if [ -z "$branch" ]; then
+        echo "No remote branch selected."
+        return
+      fi
+
+      branch_name=$(echo "$branch" | tr '/' '-' | xargs)
+      worktree_path="../${project_name}-wt-${branch_name}"
+
+      # Create a new local branch for the worktree that tracks the remote branch
+      git worktree add "$worktree_path" -b "$branch_name" "origin/$branch"
+      echo "New worktree for remote branch '$branch' created at '$worktree_path', on new local branch '$branch_name'."
+
+      cd "$worktree_path" || return
+      echo "Switched to the new worktree at '$worktree_path'."
+      ;;
+    *)
+      echo "Invalid option. Use 'n' for new worktree, 'c' to checkout an existing worktree, 'r' to checkout a remote branch as a new worktree."
+      ;;
+  esac
+}
+
+
+
+
