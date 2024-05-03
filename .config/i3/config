@@ -357,3 +357,6 @@ exec --no-startup-id sh -c './drivesync.sh'
 # minimize-script
 exec_always --no-startup-id python3 ./i3minimize.py
 
+# ssh stuff
+exec --no-startup-id bash -c '[[ -z "$SSH_AUTH_SOCK" ]] && eval `ssh-agent -s` && ssh-add ~/.ssh/id_rsa_github'
+

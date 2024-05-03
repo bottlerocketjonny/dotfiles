@@ -75,12 +75,6 @@ plugins=(
     zsh-autosuggestions
   )
 
-# Start ssh-agent and add key
-if [ -z "$SSH_AUTH_SOCK" ] ; then
-  eval `ssh-agent -s`
-  ssh-add ~/.ssh/id_rsa_github
-fi
-
 source $ZSH/oh-my-zsh.sh
 
 bindkey -v
