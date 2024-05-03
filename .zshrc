@@ -87,6 +87,8 @@ source /usr/share/doc/fzf/examples/key-bindings.zsh
 source /usr/share/doc/fzf/examples/completion.zsh
 
 alias standup='~/notes/standup/standup-bash'
+alias notes='~/notes'
+alias config= '~/.config'
 
 # sdkman
 source "$HOME/.sdkman/bin/sdkman-init.sh"
