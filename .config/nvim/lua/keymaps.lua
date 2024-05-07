@@ -4,10 +4,6 @@
 -- Zen mode
 vim.keymap.set('n', '<leader>zm', ':ZenMode<CR>', { desc = 'Zen mode' })
 
--- Quit all / save!
-vim.keymap.set('n', ':wq', ':wqa<CR>', { desc = '[Q]uit all and save' })
-vim.keymap.set('n', ':q', ':qa<CR>', { desc = '[Q]uit all' })
-
 -- Better up/down
 vim.keymap.set({ 'n', 'x' }, 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 vim.keymap.set({ 'n', 'x' }, '<Down>', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })

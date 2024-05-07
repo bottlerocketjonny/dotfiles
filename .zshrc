@@ -85,9 +85,13 @@ bindkey -s ^f "tmux-sessionizer\n"
 source /usr/share/doc/fzf/examples/key-bindings.zsh
 source /usr/share/doc/fzf/examples/completion.zsh
 
+#-------ALIASES-------#
+
 alias standup='~/notes/standup/standup-bash'
 alias notes='~/notes'
-alias config= '~/.config'
+alias config='~/.config'
+
+#---------------------#
 
 # sdkman
 source "$HOME/.sdkman/bin/sdkman-init.sh"
