@@ -42,6 +42,8 @@ require('lazy').setup({
   require 'plugins/lualine',
 
   require 'plugins/indent_line',
+
+  require 'plugins/spaceless',
 }, {
   ui = {
     icons = vim.g.have_nerd_font and {} or {
