@@ -12,6 +12,7 @@ vim.opt.mouse = 'a'
 
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
+vim.opt.laststatus = 3
 
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
@@ -47,6 +48,9 @@ vim.opt.splitbelow = true
 --  and `:help 'listchars'`
 vim.opt.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+
+-- Get rid of tilde at the edge of buffers
+vim.opt.fillchars = { eob = ' ' }
 
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = 'split'

@@ -1,8 +1,10 @@
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
+vim.keymap.set('n', '<leader>z', '<cmd>Zenmode<cr>', { desc = 'Zenmode' })
 
--- Zen mode
-vim.keymap.set('n', '<leader>zm', ':ZenMode<CR>', { desc = 'Zen mode' })
+-- Remap annoying command history
+vim.keymap.set('n', 'q:', '<Nop>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>ch', ':<C-f>', { noremap = true, silent = true, desc = '[C]ommand [H]istory' })
 
 -- Better up/down
 vim.keymap.set({ 'n', 'x' }, 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
@@ -28,9 +30,12 @@ vim.keymap.set('n', '<CR>', 'o<Esc>', { noremap = true, silent = true })
 vim.keymap.set('n', 'gh', '_', { desc = 'Jump to start of line' })
 vim.keymap.set('n', 'gl', '$', { desc = 'Jump to end of line' })
 
+-- Easier than % for matching bracket
+vim.keymap.set('n', 'gp', '%', { desc = 'Jump to matching parenthesis' })
+
 -- Center viewport when pg up/down
--- vim.keymap.set('n', '<C-u>', '<C-u>zz')
--- vim.keymap.set('n', '<C-d>', '<C-d>zz')
+vim.keymap.set('n', '<C-u>', '<C-u>zz')
+vim.keymap.set('n', '<C-d>', '<C-d>zz')
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true

@@ -1,9 +1,13 @@
+-- return {
+--   'folke/zen-mode.nvim',
+--   opts = {
+--     window = {
+--       backdrop = 1,
+--       width = 150,
+--     }
+--   },
+-- }
+
 return {
-  'folke/zen-mode.nvim',
-  opts = {
-    window = {
-      backdrop = 1,
-      width = 150,
-    },
-  },
+  'Snikimonkd/yazmp',
 }

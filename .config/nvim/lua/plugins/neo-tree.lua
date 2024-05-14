@@ -16,6 +16,7 @@ return {
   opts = {
     filesystem = {
       window = {
+        position = 'current',
         mappings = {
           ['<leader>x'] = 'close_window',
           ['l'] = 'open',
@@ -26,9 +27,7 @@ return {
       {
         event = 'file_opened',
         handler = function(file_path)
-          -- auto close
-          -- vimc.cmd("Neotree close")
-          -- OR
+          -- auto close the tree when a file is opened
           require('neo-tree.command').execute { action = 'close' }
         end,
       },

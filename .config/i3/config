@@ -341,7 +341,7 @@ exec_always --no-startup-id setxkbmap -option caps:escape
 
 # bing wallpaper & picom 
 exec --no-startup-id sh -c 'sleep 2; ./get-wallpaper'
-exec_always --no-startup-id sh -c 'sleep 2; picom --config ~/.config/picom/picom.conf'
+# exec_always --no-startup-id sh -c 'sleep 2; picom --config ~/.config/picom/picom.conf'
 
 exec --no-startup-id numlockx on
 
@@ -358,5 +358,5 @@ exec --no-startup-id sh -c './drivesync.sh'
 exec_always --no-startup-id python3 ./i3minimize.py
 
 # ssh stuff
-exec --no-startup-id bash -c '[[ -z "$SSH_AUTH_SOCK" ]] && eval `ssh-agent -s` && ssh-add ~/.ssh/id_rsa_github'
+exec --no-startup-id bash -c '[[ -z "$SSH_AUTH_SOCK" ]] && eval `ssh-agent -s` && ssh-add ~/.ssh/id_rsa_github && ssh-add ~/.ssh/id_rsa'
 
