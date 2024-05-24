@@ -4,13 +4,16 @@ vim.keymap.set('n', '<leader>z', '<cmd>Zenmode<cr>', { desc = 'Zenmode' })
 
 -- Remap annoying command history
 vim.keymap.set('n', 'q:', '<Nop>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>ch', ':<C-f>', { noremap = true, silent = true, desc = '[C]ommand [H]istory' })
+vim.keymap.set('n', '<leader>ch', ':<C-f>', { noremap = true, silent = true, desc = '[C]ommand history' })
 
 -- Better up/down
 vim.keymap.set({ 'n', 'x' }, 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 vim.keymap.set({ 'n', 'x' }, '<Down>', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 vim.keymap.set({ 'n', 'x' }, 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set({ 'n', 'x' }, '<Up>', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+
+-- Set modifiable
+vim.keymap.set('n', '<leader>m', 'set: ma', { desc = '[M]odifiable toggle' })
 
 -- Quit selected buffer
 vim.keymap.set('n', '<leader>db', ':bdelete<CR>', { desc = '[D]elete current [b]uffer' })
@@ -24,7 +27,7 @@ vim.keymap.set('v', '<A-j>', ":m '>+1<cr>gv=gv", { desc = 'Move Down' })
 vim.keymap.set('v', '<A-k>', ":m '<-2<cr>gv=gv", { desc = 'Move Up' })
 
 -- Map Enter to insert a new line below the current line and return to normal mode
-vim.keymap.set('n', '<CR>', 'o<Esc>', { noremap = true, silent = true })
+-- vim.keymap.set('n', '<CR>', 'o<Esc>', { noremap = true, silent = true })
 
 -- Quick s/eol navigation
 vim.keymap.set('n', 'gh', '_', { desc = 'Jump to start of line' })
@@ -45,7 +48,27 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+vim.keymap.set('n', '<leader>qd', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+
+-- Quickfix list (populate with tab in telescope)
+local function toggle_quickfix()
+  local qf_exists = false
+  for _, win in pairs(vim.fn.getwininfo()) do
+    if win.quickfix == 1 then
+      qf_exists = true
+      break
+    end
+  end
+  if qf_exists then
+    vim.cmd 'cclose'
+  else
+    vim.cmd 'copen'
+  end
+end
+
+vim.keymap.set('n', '<leader>q', toggle_quickfix, { desc = 'Toggle [Q]uickfix list' })
+vim.keymap.set('n', '<leader>qn', ':cnext<CR>', { desc = 'Go to next [Q]uickfix item' })
+vim.keymap.set('n', '<leader>qp', ':cprev<CR>', { desc = 'Go to previous [Q]uickfix item' })
 
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
