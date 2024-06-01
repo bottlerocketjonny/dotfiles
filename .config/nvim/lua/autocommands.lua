@@ -18,3 +18,13 @@ vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI', 'BufEnter' }, {
     end
   end,
 })
+
+
+
+local function open_telescope_notes()
+  vim.cmd("cd ~/notes")
+  require('telescope.builtin').find_files({ search_dirs = { "~/notes" } })
+end
+
+-- Autocommand to run Telescope when opening notes
+vim.api.nvim_create_user_command('Notes', open_telescope_notes, {})

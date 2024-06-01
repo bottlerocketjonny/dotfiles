@@ -104,7 +104,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 
--- Function to toggle a Markdown checkbox
+-- Function to toggle a markdown checkbox
 local function toggle_markdown_checkbox()
   local current_line = vim.api.nvim_get_current_line()
   local unchecked_pattern = "^%s*%- %[ %]"
@@ -121,9 +121,27 @@ local function toggle_markdown_checkbox()
   end
 end
 
-_G.toggle_markdown_checkbox = toggle_markdown_checkbox
+-- Function to create a new checkbox on Enter
+local function create_new_checkbox()
+  local current_line = vim.api.nvim_get_current_line()
+  local indent = current_line:match("^%s*")
+  local new_line = indent .. "- [ ] "
+  vim.api.nvim_input('<ESC>o' .. new_line)
+end
 
--- Create a key mapping for the function
+-- Export functions to the global scope
+_G.toggle_markdown_checkbox = toggle_markdown_checkbox
+_G.create_new_checkbox = create_new_checkbox
+
+-- Key mapping for toggling checkboxes
 vim.api.nvim_set_keymap('n', '<C-x>', ':lua toggle_markdown_checkbox()<CR>', { noremap = true, silent = true })
+
+-- Autocommand to create a new checkbox on Enter in Markdown files
+vim.cmd([[
+  augroup MarkdownCheckbox
+    autocmd!
+    autocmd FileType markdown inoremap <buffer> <CR> <C-o>:lua create_new_checkbox()<CR>
+  augroup END
+]])
 
 -- vim: ts=2 sts=2 sw=2 et
