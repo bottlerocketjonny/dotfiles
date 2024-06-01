@@ -8,6 +8,14 @@
 --   },
 -- }
 
+-- return {
+--   'Snikimonkd/yazmp',
+-- }
+--
+
 return {
-  'Snikimonkd/yazmp',
+  'shortcuts/no-neck-pain.nvim',
+  opts = {
+    width = 190,
+  },
 }

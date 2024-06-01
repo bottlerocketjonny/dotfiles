@@ -1,6 +1,6 @@
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
-vim.keymap.set('n', '<leader>z', '<cmd>Zenmode<cr>', { desc = 'Zenmode' })
+vim.keymap.set('n', '<leader>np', '<cmd>NoNeckPain<cr>', { desc = 'No [N]eck [P]ain' })
 
 -- Remap annoying command history
 vim.keymap.set('n', 'q:', '<Nop>', { noremap = true, silent = true })
@@ -37,8 +37,18 @@ vim.keymap.set('n', 'gl', '$', { desc = 'Jump to end of line' })
 vim.keymap.set('n', 'gp', '%', { desc = 'Jump to matching parenthesis' })
 
 -- Center viewport when pg up/down
-vim.keymap.set('n', '<C-u>', '<C-u>zz')
-vim.keymap.set('n', '<C-d>', '<C-d>zz')
+local function lazy(keys)
+  keys = vim.api.nvim_replace_termcodes(keys, true, false, true)
+  return function()
+    local old = vim.o.lazyredraw
+    vim.o.lazyredraw = true
+    vim.api.nvim_feedkeys(keys, 'nx', false)
+    vim.o.lazyredraw = old
+  end
+end
+
+vim.keymap.set('n', '<C-d>', lazy('<C-d>zz'), { desc = 'Scroll down half screen' })
+vim.keymap.set('n', '<C-u>', lazy('<C-u>zz'), { desc = 'Scroll up half screen' })
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
@@ -92,5 +102,28 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
+
+
+-- Function to toggle a Markdown checkbox
+local function toggle_markdown_checkbox()
+  local current_line = vim.api.nvim_get_current_line()
+  local unchecked_pattern = "^%s*%- %[ %]"
+  local checked_pattern = "^%s*%- %[x%]"
+
+  if current_line:match(unchecked_pattern) then
+    -- If the line contains an unchecked box, change it to checked
+    local new_line = current_line:gsub("%[ %]", "[x]")
+    vim.api.nvim_set_current_line(new_line)
+  elseif current_line:match(checked_pattern) then
+    -- If the line contains a checked box, change it to unchecked
+    local new_line = current_line:gsub("%[x%]", "[ ]")
+    vim.api.nvim_set_current_line(new_line)
+  end
+end
+
+_G.toggle_markdown_checkbox = toggle_markdown_checkbox
+
+-- Create a key mapping for the function
+vim.api.nvim_set_keymap('n', '<C-x>', ':lua toggle_markdown_checkbox()<CR>', { noremap = true, silent = true })
 
 -- vim: ts=2 sts=2 sw=2 et

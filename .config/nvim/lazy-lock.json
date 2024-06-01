@@ -24,6 +24,7 @@
   "monokai-pro.nvim": { "branch": "master", "commit": "aafde73a622435891d36b411d8623e705ead6293" },
   "neo-tree.nvim": { "branch": "main", "commit": "7aad1bf3f6b849cbf108e02c55ad4d701cb4d33a" },
   "neodev.nvim": { "branch": "main", "commit": "ce9a2e8eaba5649b553529c5498acb43a6c317cd" },
+  "no-neck-pain.nvim": { "branch": "main", "commit": "741ad26c4acc45f2164a3933f7825b0e555b724d" },
   "nui.nvim": { "branch": "main", "commit": "a3597dc88b53489d3fddbddbbd13787355253bb0" },
   "nvim-cmp": { "branch": "main", "commit": "cd2cf0c124d3de577fb5449746568ee8e601afc8" },
   "nvim-jdtls": { "branch": "master", "commit": "8eb5f0dbe6e126b392ddcaf45893358619893e45" },
@@ -42,6 +43,5 @@
   "vim-slime": { "branch": "main", "commit": "4a898d57f41bc35e99173c5a0a8720f1796459b5" },
   "vim-tmux-navigator": { "branch": "master", "commit": "a26954a585b02a2ac02f87145e204f8798a7cbc2" },
   "which-key.nvim": { "branch": "main", "commit": "4433e5ec9a507e5097571ed55c02ea9658fb268a" },
-  "yazmp": { "branch": "main", "commit": "7503fed35d806dbf443e9abf1293493bcbe1b265" },
   "zenbones.nvim": { "branch": "main", "commit": "453ec69d82d644ee6998a3464da49d0261df9f80" }
 }

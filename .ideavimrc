@@ -2,7 +2,7 @@
 "" ========================================================
 
 let mapleader = " "
-set number relativenumber
+set number
 set scrolloff=10
 set showmode
 set showcmd
@@ -145,12 +145,12 @@ map <leader>ra <action>(ChooseRunConfiguration)
 map <leader>rt <action>(RunClass)
 
 " File navigation
-map <leader>ff <action>(GotoFile)
-map <leader>fr <action>(RecentFiles)
-map <leader>fc <action>(FindInPath)
+" search files
+map <leader>sf <action>(GotoFile)
+" search recent buffers
 map <leader><leader> <Action>(RecentFiles)
-map <leader>fl <action>(RecentLocations)
-map <leader>fs <action>(NewScratchFile)
+" search grep
+map <leader>sg <action>(FindInPath)
 
 " Close active tab
 map <leader>q <action>(CloseContent)

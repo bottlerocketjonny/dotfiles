@@ -340,7 +340,7 @@ exec --no-startup-id gtk-launch ~/.config/gtk-3.0/settings.ini
 exec_always --no-startup-id setxkbmap -option caps:escape
 
 # bing wallpaper & picom 
-exec --no-startup-id sh -c 'sleep 2; ./get-wallpaper'
+exec --no-startup-id sh -c 'sleep 2; ~/scripts/get-wallpaper.sh'
 # exec_always --no-startup-id sh -c 'sleep 2; picom --config ~/.config/picom/picom.conf'
 
 exec --no-startup-id numlockx on
@@ -352,7 +352,7 @@ exec --no-startup-id xset s off
 exec --no-startup-id xset -dpms
 
 # sync gdrive
-exec --no-startup-id sh -c './drivesync.sh'
+exec --no-startup-id sh -c '~/scripts/drivesync.sh'
 
 # minimize-script
 exec_always --no-startup-id python3 ./i3minimize.py
