@@ -91,6 +91,8 @@ bindkey -s ^s "cd **  "
 alias standup='~/notes/standup/standup-bash'
 alias notes='~/notes'
 alias config='~/.config'
+alias tdw='nvim +":NoNeckPain" ~/notes/todo/work.md'
+alias tdp='nvim +":NoNeckPain" ~/notes/todo/personal.md'
 
 #---------------------#
 
