@@ -73,6 +73,8 @@ ZSH_THEME="robbyrussell"
 plugins=(
     git
     zsh-autosuggestions
+    man
+    tldr
   )
 
 source $ZSH/oh-my-zsh.sh
@@ -88,11 +90,12 @@ bindkey -s ^s "cd **  "
 
 #-------ALIASES-------#
 
-alias standup='~/scripts/standup.sh'
+alias standup='$HOME/scripts/standup.sh'
 alias notes='nvim +Notes'
-alias config='~/.config'
-alias tdw='nvim +":NoNeckPain" ~/notes/todo/work.md'
-alias tdp='nvim +":NoNeckPain" ~/notes/todo/personal.md'
+alias config='$HOME/.config'
+alias nn='$HOME/scripts/new-note.sh'
+alias tdw='nvim +":NoNeckPain" $HOME/notes/todo/work.md'
+alias tdp='nvim +":NoNeckPain" $HOME/notes/todo/personal.md'
 
 #---------------------#
 

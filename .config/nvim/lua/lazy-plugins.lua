@@ -44,6 +44,8 @@ require('lazy').setup({
   require 'plugins/indent_line',
 
   require 'plugins/spaceless',
+
+  require 'plugins/auto-save',
 }, {
   ui = {
     icons = vim.g.have_nerd_font and {} or {
