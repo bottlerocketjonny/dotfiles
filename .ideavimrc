@@ -77,10 +77,10 @@ nnoremap <A-l> :tabnext<CR>
 nnoremap <A-h> :tabprev<CR>
 
 " Pane navigation
-" nnoremap <C-h> <C-w>h
-" nnoremap <C-l> <C-w>l
-" nnoremap <C-k> <C-w>k
-" nnoremap <C-j> <C-w>j
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+nnoremap <C-k> <C-w>k
+nnoremap <C-j> <C-w>j
 
 " Jump between methods
 map [[ <Action>(MethodUp)
@@ -114,13 +114,13 @@ vmap <C-u> <C-u>zz
 map cam vf)c<Esc>a
 
 " Comment lines
-map <leader>c <action>(CommentByLineComment)
+map gc <action>(CommentByLineComment)
 
 " Jump around with easymotion
 map s <Plug>(easymotion-s)
 
 " Open NERDTree (use q to exit)
-map <leader>e :NERDTreeToggle<CR>
+map <leader>x :NERDTreeToggle<CR>
 
 " Folding
 map <leader>zc :action CollapseAllRegions<CR>

@@ -216,13 +216,14 @@ focus_on_window_activation focus
 focus_follows_mouse no
 
 # gaps
-gaps inner 5
-gaps outer 2
+gaps inner 0
+gaps outer 0
 
 # disable float on all windows apart from specified later in config
 # for_window [class=".*"] floating disable split h
 
 # intellij settings cos its weird
+for_window [class="jetbrains-idea"] focus_on_window_activation none
 for_window [class="jetbrains-idea"] split v
 for_window [class="jetbrains-toolbox"] split h
 # for_window [class="^jetbrains-.+" title="win0"] floating enable
