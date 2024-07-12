@@ -91,7 +91,8 @@ bindkey -s ^s "cd **  "
 #-------ALIASES-------#
 
 alias standup='$HOME/scripts/standup.sh'
-alias notes='nvim +Notes'
+alias fn='nvim +FNotes'
+alias gn='nvim +GNotes'
 alias config='$HOME/.config'
 alias nn='$HOME/scripts/new-note.sh'
 alias tdw='nvim +":NoNeckPain" $HOME/notes/todo/work.md'
