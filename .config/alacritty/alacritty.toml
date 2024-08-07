@@ -9,3 +9,6 @@ dynamic_padding = true
 
 [font]
 normal = { family = "JetBrains Mono Nerd Font", style = "Regular" }
+
+[colors.primary]
+background = "#2C2525"

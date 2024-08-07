@@ -2,6 +2,12 @@
 --  See `:help vim.keymap.set()`
 vim.keymap.set('n', '<leader>np', '<cmd>NoNeckPain<cr>', { desc = 'No [N]eck [P]ain' })
 
+
+-- Compile and send c code to tmux window using slime
+vim.keymap.set('n', '<leader>cr',
+  ':w<CR>:call slime#send("gcc " . expand("%") . " -o " . expand("%:r") . " && ./" . expand("%:r") . "\\n")<CR>',
+  { noremap = true, silent = true, desc = '[C]ompile and [R]un C code' })
+
 -- Remap annoying command history
 vim.keymap.set('n', 'q:', '<Nop>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>ch', ':<C-f>', { noremap = true, silent = true, desc = '[C]ommand history' })
@@ -15,6 +21,9 @@ vim.keymap.set({ 'n', 'x' }, '<Up>', "v:count == 0 ? 'gk' : 'k'", { expr = true,
 -- Set modifiable
 vim.keymap.set('n', '<leader>m', 'set: ma', { desc = '[M]odifiable toggle' })
 
+-- Autosave toggle
+vim.keymap.set('n', '<leader>a', ':ASToggle<CR>', { desc = '[A]utosave toggle' })
+
 -- Quit selected buffer
 vim.keymap.set('n', '<leader>db', ':bdelete<CR>', { desc = '[D]elete current [b]uffer' })
 
@@ -27,7 +36,7 @@ vim.keymap.set('v', '<A-j>', ":m '>+1<cr>gv=gv", { desc = 'Move Down' })
 vim.keymap.set('v', '<A-k>', ":m '<-2<cr>gv=gv", { desc = 'Move Up' })
 
 -- Map Enter to insert a new line below the current line and return to normal mode
--- vim.keymap.set('n', '<CR>', 'o<Esc>', { noremap = true, silent = true })
+vim.keymap.set('n', '<CR>', 'o<Esc>', { noremap = true, silent = true })
 
 -- Quick s/eol navigation
 vim.keymap.set('n', 'gh', '_', { desc = 'Jump to start of line' })

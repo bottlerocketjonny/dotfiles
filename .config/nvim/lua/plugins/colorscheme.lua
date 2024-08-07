@@ -48,6 +48,7 @@ return {
         },
       },
       override = function(c)
+        Normal = { bg = "#000000" }
         vim.api.nvim_set_hl(0, 'StatusLine', { fg = '#ffffff', bg = '#3a3a3a' })
         vim.api.nvim_set_hl(0, 'StatusLineNC', { fg = '#aaaaaa', bg = '#202020' })
       end,
@@ -143,20 +144,20 @@ return {
           -- Diag
           samuraiRed = '#E82424',
           roninYellow = '#FF9E3B',
-          waveAqua1 = '#7E9CD8', -- modified
+          waveAqua1 = '#7E9CD8',  -- modified
           dragonBlue = '#7FB4CA', -- modified
 
           -- Foreground and Comments
           oldWhite = '#C8C093',
-          fujiWhite = '#F9E7C0', -- modified
+          fujiWhite = '#F9E7C0',   -- modified
           fujiGray = '#727169',
-          oniViolet = '#BFA3E6', -- modified
-          oniViolet2 = '#BCACDB', -- modified
+          oniViolet = '#BFA3E6',   -- modified
+          oniViolet2 = '#BCACDB',  -- modified
           crystalBlue = '#8CABFF', -- modified
           springViolet1 = '#938AA9',
           springViolet2 = '#9CABCA',
           springBlue = '#7FC4EF', -- modified
-          waveAqua2 = '#77BBDD', -- modified
+          waveAqua2 = '#77BBDD',  -- modified
 
           springGreen = '#98BB6C',
           boatYellow1 = '#938056',
