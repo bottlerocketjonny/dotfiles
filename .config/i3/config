@@ -45,7 +45,7 @@ bindsym XF86AudioPrev exec playerctl previous
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec /home/jonny/.cargo/bin/alacritty -e tmux
+bindsym $mod+Return exec /home/jonny/.cargo/bin/alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -332,7 +332,7 @@ bindsym $mod+shift+x exec i3lock
 # Open programs on startup
 exec brave-browser
 exec keepassxc
-exec /home/jonny/.cargo/bin/alacritty -e tmux
+exec /home/jonny/.cargo/bin/alacritty
 
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id gtk-launch ~/.gtkrc-2.0

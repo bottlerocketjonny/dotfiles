@@ -46,6 +46,29 @@ return {
       local luasnip = require 'luasnip'
       luasnip.config.setup {}
 
+      -- Function to toggle TabNine
+      _G.ToggleTabNine = function()
+        local sources = {
+          { name = 'nvim_lsp' },
+          { name = 'luasnip' },
+          { name = 'path' },
+        }
+
+        if _G.tabnine_enabled then
+          _G.tabnine_enabled = false
+          print("TabNine is now disabled")
+        else
+          table.insert(sources, { name = 'cmp_tabnine' })
+          _G.tabnine_enabled = true
+          print("TabNine is now enabled")
+        end
+
+        cmp.setup.buffer({ sources = sources })
+      end
+
+      -- Initialize TabNine as enabled
+      _G.tabnine_enabled = true
+
       cmp.setup {
         snippet = {
           expand = function(args)

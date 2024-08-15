@@ -2,6 +2,8 @@
 --  See `:help vim.keymap.set()`
 vim.keymap.set('n', '<leader>np', '<cmd>NoNeckPain<cr>', { desc = 'No [N]eck [P]ain' })
 
+-- Toggle Tabnine
+vim.keymap.set('n', '<leader>tn', ':lua ToggleTabNine()<CR>', { noremap = true, silent = true })
 
 -- Compile and send c code to tmux window using slime
 vim.keymap.set('n', '<leader>cr',
@@ -13,10 +15,10 @@ vim.keymap.set('n', 'q:', '<Nop>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>ch', ':<C-f>', { noremap = true, silent = true, desc = '[C]ommand history' })
 
 -- Better up/down
-vim.keymap.set({ 'n', 'x' }, 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-vim.keymap.set({ 'n', 'x' }, '<Down>', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-vim.keymap.set({ 'n', 'x' }, 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-vim.keymap.set({ 'n', 'x' }, '<Up>', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+-- vim.keymap.set({ 'n', 'x' }, 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+-- vim.keymap.set({ 'n', 'x' }, '<Down>', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+-- vim.keymap.set({ 'n', 'x' }, 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+-- vim.keymap.set({ 'n', 'x' }, '<Up>', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 
 -- Set modifiable
 vim.keymap.set('n', '<leader>m', 'set: ma', { desc = '[M]odifiable toggle' })
@@ -56,8 +58,8 @@ local function lazy(keys)
   end
 end
 
-vim.keymap.set('n', '<C-d>', lazy('<C-d>zz'), { desc = 'Scroll down half screen' })
-vim.keymap.set('n', '<C-u>', lazy('<C-u>zz'), { desc = 'Scroll up half screen' })
+-- vim.keymap.set('n', '<C-d>', lazy('<C-d>zz'), { desc = 'Scroll down half screen' })
+-- vim.keymap.set('n', '<C-u>', lazy('<C-u>zz'), { desc = 'Scroll up half screen' })
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true

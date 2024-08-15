@@ -15,6 +15,39 @@ return {
   },
 
   {
+    "EdenEast/nightfox.nvim",
+    config = function()
+      vim.cmd('colorscheme terafox')
+    end,
+  },
+
+  {
+    'AlexvZyl/nordic.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require('nordic').setup({
+        bold_keywords = true,
+        reduced_blue = true
+      })
+      -- vim.cmd('colorscheme nordic')
+    end
+  },
+
+  {
+    'projekt0n/github-nvim-theme',
+    lazy = false,    -- make sure we load this during startup if it is your main colorscheme
+    priority = 1000, -- make sure to load this before all the other start plugins
+    config = function()
+      require('github-theme').setup({
+        -- ...
+      })
+
+      -- vim.cmd('colorscheme github_dark')
+    end,
+  },
+
+  {
     'loctvl842/monokai-pro.nvim',
     priority = 1000, -- Ensure this is loaded before other plugins
     opts = {
@@ -31,7 +64,7 @@ return {
         annotation = { italic = true },
         tag_attribute = { italic = true },
       },
-      filter = 'ristretto',
+      filter = 'pro',
       inc_search = 'background',
       background_clear = {
         'neo-tree',
@@ -55,9 +88,10 @@ return {
     },
     config = function(_, opts)
       require('monokai-pro').setup(opts)
-      vim.cmd 'colorscheme monokai-pro-ristretto'
+      -- vim.cmd 'colorscheme monokai-pro-default'
     end,
   },
+
   -- {
   --   'ofirgall/ofirkai.nvim',
   --   opts = {},

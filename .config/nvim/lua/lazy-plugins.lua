@@ -37,8 +37,6 @@ require('lazy').setup({
 
   require 'plugins/slime',
 
-  require 'plugins/nvim-jdtls',
-
   require 'plugins/lualine',
 
   require 'plugins/indent_line',
