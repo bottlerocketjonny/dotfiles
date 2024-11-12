@@ -186,5 +186,18 @@ function wt() {
 }
 
 
+# Android SDK environment variables
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin
+
+export CHROME_EXECUTABLE=/usr/bin/brave-browser
+export EDGE_PATH=/usr/bin/brave-browser
+
+export ANDROID_EMULATOR_WAIT_TIME_BEFORE_KILL=1
+export ANDROID_EMULATOR_USE_SYSTEM_LIBS=1
+export MESA_LOADER_DRIVER_OVERRIDE=i965
+
 
 

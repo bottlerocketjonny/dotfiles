@@ -3,7 +3,9 @@
 
 let mapleader = " "
 set number
-set scrolloff=10
+set relativenumber
+
+set scrolloff=999
 set showmode
 set showcmd
 
@@ -40,6 +42,7 @@ let g:NERDTreeMapJumpParent='h'
 set easymotion
 let g:EasyMotion_do_mapping = 0
 set notimeout
+set quickscope
 
 " Harpoon
 nmap <leader>; :action ShowHarpoon<CR>
@@ -105,10 +108,16 @@ map gl $
 "" ========================================================
 
 " Scrolling
-nmap <C-d> <C-d>zz
-nmap <C-u> <C-u>zz
-vmap <C-d> <C-d>zz
-vmap <C-u> <C-u>zz
+" nmap <C-d> <C-d>zz
+" nmap <C-u> <C-u>zz
+" vmap <C-d> <C-d>zz
+" vmap <C-u> <C-u>zz
+
+" Visual around a whole function
+" map vaf [[f{va{V
+
+" Yank around a whole function
+" map yaf [[f{va{Vy
 
 " Change around method name
 map cam vf)c<Esc>a
@@ -181,8 +190,11 @@ map <leader>gb <Action>(Git.Branches)
 map <leader>en <Action>(GotoNextError)
 map <leader>ep <Action>(GotoPreviousError)
 
+" Format
+map <leader>f <Action>(ReformatCode)
+
 " Which-key settings
-" set which-key
+set which-key
 let g:WhichKey_FontSize = "17"
 let g:WhichKey_FontFamily = "JetBrains Mono"
 let g:WhichKey_PrefixColor = "#55BADD"
@@ -227,6 +239,8 @@ let g:WhichKeyDesc_file_nav_show_recent_files = "<leader>fr Show recent files"
 let g:WhichKeyDesc_file_nav_show_recent_locations = "<leader>fl Show recent locations"
 
 let g:WhichKeyDesc_close_tab = "<leader>q Close active tab"
+
+let g:WhichKeyDesc_format = "<leader>f Format"
 
 let g:WhichKeyDesc_refactoring = "<leader>r Refactoring menu"
 let g:WhichKeyDesc_refactoring_rename = "<leader>rn Rename element"

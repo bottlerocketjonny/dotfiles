@@ -1,9 +1,9 @@
-vim.api.nvim_create_autocmd('VimEnter', {
-  pattern = '*',
-  callback = function()
-    vim.cmd 'Neotree reveal'
-  end,
-})
+-- vim.api.nvim_create_autocmd('VimEnter', {
+--   pattern = '*',
+--   callback = function()
+--     vim.cmd 'Neotree reveal'
+--   end,
+-- })
 vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI', 'BufEnter' }, {
   group = vim.api.nvim_create_augroup('ScrollOffEOF', {}),
   callback = function()

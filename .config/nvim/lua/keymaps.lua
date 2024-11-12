@@ -6,9 +6,12 @@ vim.keymap.set('n', '<leader>np', '<cmd>NoNeckPain<cr>', { desc = 'No [N]eck [P]
 vim.keymap.set('n', '<leader>tn', ':lua ToggleTabNine()<CR>', { noremap = true, silent = true })
 
 -- Compile and send c code to tmux window using slime
-vim.keymap.set('n', '<leader>cr',
+vim.keymap.set(
+  'n',
+  '<leader>cr',
   ':w<CR>:call slime#send("gcc " . expand("%") . " -o " . expand("%:r") . " && ./" . expand("%:r") . "\\n")<CR>',
-  { noremap = true, silent = true, desc = '[C]ompile and [R]un C code' })
+  { noremap = true, silent = true, desc = '[C]ompile and [R]un C code' }
+)
 
 -- Remap annoying command history
 vim.keymap.set('n', 'q:', '<Nop>', { noremap = true, silent = true })
@@ -47,27 +50,13 @@ vim.keymap.set('n', 'gl', '$', { desc = 'Jump to end of line' })
 -- Easier than % for matching bracket
 vim.keymap.set('n', 'gp', '%', { desc = 'Jump to matching parenthesis' })
 
--- Center viewport when pg up/down
-local function lazy(keys)
-  keys = vim.api.nvim_replace_termcodes(keys, true, false, true)
-  return function()
-    local old = vim.o.lazyredraw
-    vim.o.lazyredraw = true
-    vim.api.nvim_feedkeys(keys, 'nx', false)
-    vim.o.lazyredraw = old
-  end
-end
-
--- vim.keymap.set('n', '<C-d>', lazy('<C-d>zz'), { desc = 'Scroll down half screen' })
--- vim.keymap.set('n', '<C-u>', lazy('<C-u>zz'), { desc = 'Scroll up half screen' })
-
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
+vim.keymap.set('n', '[d', vim.diagnostic.get_prev, { desc = 'Go to previous [D]iagnostic message' })
+vim.keymap.set('n', ']d', vim.diagnostic.get_next, { desc = 'Go to next [D]iagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
 vim.keymap.set('n', '<leader>qd', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
@@ -114,20 +103,19 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
-
 -- Function to toggle a markdown checkbox
 local function toggle_markdown_checkbox()
   local current_line = vim.api.nvim_get_current_line()
-  local unchecked_pattern = "^%s*%- %[ %]"
-  local checked_pattern = "^%s*%- %[x%]"
+  local unchecked_pattern = '^%s*%- %[ %]'
+  local checked_pattern = '^%s*%- %[x%]'
 
   if current_line:match(unchecked_pattern) then
     -- If the line contains an unchecked box, change it to checked
-    local new_line = current_line:gsub("%[ %]", "[x]")
+    local new_line = current_line:gsub('%[ %]', '[x]')
     vim.api.nvim_set_current_line(new_line)
   elseif current_line:match(checked_pattern) then
     -- If the line contains a checked box, change it to unchecked
-    local new_line = current_line:gsub("%[x%]", "[ ]")
+    local new_line = current_line:gsub('%[x%]', '[ ]')
     vim.api.nvim_set_current_line(new_line)
   end
 end

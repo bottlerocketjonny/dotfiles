@@ -121,9 +121,9 @@ set $ws3 "3: editor 1"
 set $ws4 "4: editor 2"
 set $ws5 "5: db"
 set $ws6 "6: chat"
-set $ws7 "7: chat 2"
+set $ws7 "7: music"
 set $ws8 "8: pass"
-set $ws9 "9: http"
+set $ws9 "9: dev"
 set $ws10 "10: utils"
 
 # Assign workspaces to specific monitors
@@ -133,9 +133,9 @@ workspace 3 output HDMI-1-0
 workspace 4 output eDP
 workspace 5 output HDMI-1-0
 workspace 6 output HDMI-1-0
-workspace 7 output HDMI-1-0
+workspace 7 output eDP
 workspace 8 output eDP
-workspace 9 output HDMI-1-0
+workspace 9 output eDP
 workspace 10 output eDP
 
 # switch to workspace
@@ -197,8 +197,11 @@ assign [class="Google-chrome"] $ws1
 assign [class="Alacritty"] $ws2
 assign [class="Gnome-terminal"] $ws2
 assign [class="jetbrains-idea"] $ws3
-for_window [title="Services - "] move container to workspace $ws4
-for_window [title="Run - "] move container to workspace $ws4
+for_window [class= "jetbrains-idea" title="Services - "] move container to workspace $ws4
+for_window [class="jetbrains-idea" title="Run - "] move container to workspace $ws4
+for_window [title="^Android Emulator.+:[0-9]+$"] floating enable
+for_window [title="DevTools -"] move container to workspace $ws9
+assign [class="Spotify"] $ws4
 assign [class="jetbrains-datagrip"] $ws5
 assign [class="beekeeper-studio"] $ws5
 assign [class="Slack"] $ws6
@@ -209,7 +212,6 @@ assign [class="Postman"] $ws9
 assign [class="bruno"] $ws9
 assign [class="Blueman-manager"] $ws10
 assign [class="Gnome-system-monitor"] $ws10
-assign [class="Spotify"] $ws10
 
 # focus windows automatically, say if you open a browser link
 focus_on_window_activation focus
@@ -232,8 +234,8 @@ for_window [class="jetbrains-idea" title=".*approved.*"] move to workspace $ws3,
 
 # zoom settings cos its weird
 for_window [class="zoom"] split v
-for_window [class="zoom"] [title="Zoom Meeting"] move container to workspace $ws7
-for_window [class="zoom"] [title="Chat"] move position mouse
+for_window [class="zoom" title="Zoom Meeting"] move container to workspace $ws7
+for_window [class="zoom" title="Chat"] move position mouse
 
 # alt tab-like behavior
 bindsym Mod1+Tab workspace back_and_forth
@@ -353,7 +355,7 @@ exec --no-startup-id xset s off
 exec --no-startup-id xset -dpms
 
 # sync stuff
-exec --no-startup-id sh -c '~/scripts/drivesync.sh'
+# exec --no-startup-id sh -c '~/scripts/drivesync.sh'
 exec --no-startup-id syncthing
 
 # minimize-script
@@ -361,4 +363,7 @@ exec_always --no-startup-id python3 ./i3minimize.py
 
 # ssh stuff
 exec --no-startup-id bash -c '[[ -z "$SSH_AUTH_SOCK" ]] && eval `ssh-agent -s` && ssh-add ~/.ssh/id_rsa_github && ssh-add ~/.ssh/id_rsa'
+
+# custom keybinding for full screen in IDEA
+bindsym Shift+F12 exec --no-startup-id ~/.config/i3/send_keys.sh
 
