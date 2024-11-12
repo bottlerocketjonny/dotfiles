@@ -45,7 +45,8 @@ bindsym XF86AudioPrev exec playerctl previous
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec /home/jonny/.cargo/bin/alacritty
+# bindsym $mod+Return exec /home/jonny/.cargo/bin/alacritty -e tmux
+bindsym $mod+Return exec /home/jonny/.cargo/bin/alacritty -e ~/scripts/launch-terminal.sh
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -212,6 +213,10 @@ assign [class="Postman"] $ws9
 assign [class="bruno"] $ws9
 assign [class="Blueman-manager"] $ws10
 assign [class="Gnome-system-monitor"] $ws10
+for_window [class="Back In Time"] floating disable
+assign [class="Back In Time"] $ws10
+for_window [class="Timeshift"] floating disable
+assign [class="Timeshift"] $ws10
 
 # focus windows automatically, say if you open a browser link
 focus_on_window_activation focus
@@ -271,6 +276,15 @@ mode "resize" {
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
 }
+
+# easy resize
+bindsym $mod+Ctrl+l resize grow width 20
+
+bindsym $mod+Ctrl+k resize shrink height 20
+
+bindsym $mod+Ctrl+j resize grow height 20
+
+bindsym $mod+Ctrl+h resize shrink width 20
 
 bindsym $mod+r mode "resize"
 
