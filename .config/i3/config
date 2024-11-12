@@ -46,6 +46,7 @@ floating_modifier $mod
 
 # start a terminal
 # bindsym $mod+Return exec /home/jonny/.cargo/bin/alacritty -e tmux
+
 bindsym $mod+Return exec /home/jonny/.cargo/bin/alacritty -e ~/scripts/launch-terminal.sh
 
 # kill focused window
@@ -202,7 +203,7 @@ for_window [class= "jetbrains-idea" title="Services - "] move container to works
 for_window [class="jetbrains-idea" title="Run - "] move container to workspace $ws4
 for_window [title="^Android Emulator.+:[0-9]+$"] floating enable
 for_window [title="DevTools -"] move container to workspace $ws9
-assign [class="Spotify"] $ws4
+assign [class="Spotify"] $ws7
 assign [class="jetbrains-datagrip"] $ws5
 assign [class="beekeeper-studio"] $ws5
 assign [class="Slack"] $ws6
