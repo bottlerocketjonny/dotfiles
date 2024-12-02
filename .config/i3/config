@@ -124,7 +124,7 @@ set $ws4 "4: editor 2"
 set $ws5 "5: db"
 set $ws6 "6: chat"
 set $ws7 "7: music"
-set $ws8 "8: pass"
+set $ws8 "8: pass / todo"
 set $ws9 "9: dev"
 set $ws10 "10: utils"
 
@@ -201,6 +201,7 @@ assign [class="Gnome-terminal"] $ws2
 assign [class="jetbrains-idea"] $ws3
 for_window [class= "jetbrains-idea" title="Services - "] move container to workspace $ws4
 for_window [class="jetbrains-idea" title="Run - "] move container to workspace $ws4
+for_window [class="jetbrains-idea" title="TODO - "] move container to workspace $ws4
 for_window [title="^Android Emulator.+:[0-9]+$"] floating enable
 for_window [title="DevTools -"] move container to workspace $ws9
 assign [class="Spotify"] $ws7
@@ -210,6 +211,7 @@ assign [class="Slack"] $ws6
 assign [class="zoom"] $ws6
 assign [class="discord"] $ws6
 assign [class="KeePassXC"] $ws8
+assign [class="ticktick"] $ws8
 assign [class="Postman"] $ws9
 assign [class="bruno"] $ws9
 assign [class="Blueman-manager"] $ws10
@@ -349,7 +351,7 @@ bindsym $mod+shift+x exec i3lock
 # Open programs on startup
 exec brave-browser
 exec keepassxc
-exec /home/jonny/.cargo/bin/alacritty
+exec /home/jonny/.cargo/bin/alacritty -e ~/scripts/launch-terminal.sh
 
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id gtk-launch ~/.gtkrc-2.0
