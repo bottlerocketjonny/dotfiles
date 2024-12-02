@@ -8,7 +8,7 @@ if [ $# -eq 0 ]; then
 else
     filename="$1"
     filename="${filename%.md}"
-    note_file="${notes_dir}/${filename}_${timestamp}.md"
+    note_file="${notes_dir}/${filename}.md"
 fi
 
 nvim +"NoNeckPain" "$note_file"
