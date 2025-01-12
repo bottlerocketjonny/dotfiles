@@ -95,6 +95,8 @@ alias fn='nvim +FNotes'
 alias gn='nvim +GNotes'
 alias config='$HOME/.config'
 alias nn='$HOME/scripts/new-note.sh'
+
+alias japeto='cd ~/code/work-projects/japeto && nvim .'
 # alias mvnlog="mvn spring-boot:run | grcat conf.log | fzf --tac --no-sort --exact --ansi --bind 'ctrl-p:toggle-preview' --preview 'echo {} | grep -C 10 {}' --preview-window 'right:50%:wrap:hidden'"
 alias mvnlog="mvn spring-boot:run | grcat conf.log | fzf --tac --no-sort --exact --ansi"
 
