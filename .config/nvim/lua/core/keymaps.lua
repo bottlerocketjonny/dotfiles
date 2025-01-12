@@ -2,6 +2,17 @@
 vim.g.mapleader = " "
 local keymap = vim.keymap
 
+-- Misc improvements
+-----------------------------------------------------------------------------------------
+keymap.set('n', 'q:', '<Nop>', { noremap = true, silent = true })
+keymap.set('n', '<CR>', 'o<Esc>', { noremap = true, silent = true })
+keymap.set('n', 'gh', '_', { desc = 'Go to start of line' })
+keymap.set('n', 'gl', '$', { desc = 'Go to end of line' })
+keymap.set('n', 'gp', '%', { desc = 'Go to matching bracket' })
+keymap.set("n", "<leader>fw", ":w<CR>", { desc = 'Write file' })
+keymap.set('n', '<C-u>', '<C-u>zz', { noremap = true, desc = 'Scroll up and center' })
+keymap.set('n', '<C-d>', '<C-d>zz', { noremap = true, desc = 'Scroll down and center' })
+
 -- Write/Save commands
 -----------------------------------------------------------------------------------------
 keymap.set("n", "<leader>fw", ":w<CR>", { desc = 'Write file' })
@@ -161,14 +172,6 @@ keymap.set("n", "<leader>xg", ":GitBlameToggle<CR>", { desc = 'Toggle git blame'
 keymap.set("n", "<leader>xn", '<cmd>NoNeckPain<cr>', { desc = 'Toggle no neck pain' })
 keymap.set("n", "<leader>xm", ':set ma<CR>', { desc = 'Toggle modifiable' })
 keymap.set('n', '<leader>xh', ':<C-f>', { noremap = true, silent = true, desc = 'Command history' })
-
--- Misc improvements
------------------------------------------------------------------------------------------
-keymap.set('n', 'q:', '<Nop>', { noremap = true, silent = true })
-keymap.set('n', '<CR>', 'o<Esc>', { noremap = true, silent = true })
-keymap.set('n', 'gh', '_', { desc = 'Go to start of line' })
-keymap.set('n', 'gl', '$', { desc = 'Go to end of line' })
-keymap.set('n', 'gp', '%', { desc = 'Go to matching bracket' })
 
 -- Line movement
 -----------------------------------------------------------------------------------------

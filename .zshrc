@@ -96,7 +96,7 @@ alias gn='nvim +GNotes'
 alias config='$HOME/.config'
 alias nn='$HOME/scripts/new-note.sh'
 
-alias japeto='cd ~/code/work-projects/japeto && nvim .'
+alias japeto='cd ~/code/work-projects/japeto && (tmux rename-window "nvim" && nvim . & tmux neww -n "git" & tmux neww -n "backend" -c ~/code/work-projects/japeto/backend & tmux neww -n "dashboard" -c ~/code/work-projects/japeto/dashboard-frontend & tmux neww -n "chatbot" -c ~/code/work-projects/japeto/chatbot-frontend)'
 # alias mvnlog="mvn spring-boot:run | grcat conf.log | fzf --tac --no-sort --exact --ansi --bind 'ctrl-p:toggle-preview' --preview 'echo {} | grep -C 10 {}' --preview-window 'right:50%:wrap:hidden'"
 alias mvnlog="mvn spring-boot:run | grcat conf.log | fzf --tac --no-sort --exact --ansi"
 
