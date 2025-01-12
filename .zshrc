@@ -95,8 +95,8 @@ alias fn='nvim +FNotes'
 alias gn='nvim +GNotes'
 alias config='$HOME/.config'
 alias nn='$HOME/scripts/new-note.sh'
-alias tdw='nvim +":NoNeckPain" $HOME/notes/todo/work.md'
-alias tdp='nvim +":NoNeckPain" $HOME/notes/todo/personal.md'
+# alias mvnlog="mvn spring-boot:run | grcat conf.log | fzf --tac --no-sort --exact --ansi --bind 'ctrl-p:toggle-preview' --preview 'echo {} | grep -C 10 {}' --preview-window 'right:50%:wrap:hidden'"
+alias mvnlog="mvn spring-boot:run | grcat conf.log | fzf --tac --no-sort --exact --ansi"
 
 #---------------------#
 

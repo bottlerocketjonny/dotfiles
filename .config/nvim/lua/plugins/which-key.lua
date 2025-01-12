@@ -1,34 +1,42 @@
--- NOTE: Plugins can also be configured to run Lua code when they are loaded.
---
--- This is often very useful to both group configuration, as well as handle
--- lazy loading plugins that don't need to be loaded immediately at startup.
---
--- For example, in the following configuration, we use:
---  event = 'VimEnter'
---
--- which loads which-key before all the UI elements are loaded. Events can be
--- normal autocommands events (`:help autocmd-events`).
---
--- Then, because we use the `config` key, the configuration only runs
--- after the plugin has been loaded:
---  config = function() ... end
-
 return {
   { -- Useful plugin to show you pending keybinds.
     'folke/which-key.nvim',
     event = 'VimEnter', -- Sets the loading event to 'VimEnter'
     config = function() -- This is the function that runs, AFTER loading
       require('which-key').setup()
-
       -- Document existing key chains
       require('which-key').add {
+        -- Main groups
+        { '<leader>z', group = 'Spell check' },
+        { '<leader>b', group = '[B]reakpoints' },
         { '<leader>c', group = '[C]ode' },
-        { '<leader>d', group = '[D]ocument' },
-        { '<leader>r', group = '[R]ename' },
-        { '<leader>s', group = '[S]earch' },
-        { '<leader>w', group = '[W]orkspace' },
-        { '<leader>t', group = '[T]oggle' },
-        { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
+        { '<leader>d', group = '[D]ebug' },
+        { '<leader>e', group = '[E]xplorer' },
+        { '<leader>s', group = '[S]earch files' },
+        { '<leader>g', group = '[G]o to' },
+        { '<leader>h', group = '[H]arpoon' },
+        { '<leader>q', group = '[Q]uickfix' },
+        { '<leader>f', group = '[F]ile management' },
+        { '<leader>w', group = '[W]indow splits' },
+        { '<leader>t', group = '[T]ab/Test' },
+        { '<leader>x', group = 'E[x]tra tools' },
+
+        -- Individual key bindings
+        { '<leader>ch', name = 'Command history' },
+        { 'gh', name = 'Go to start of line' },
+        { 'gl', name = 'Go to end of line' },
+        { 'gp', name = 'Go to matching bracket' },
+        { 'gx', name = 'Open URL under cursor' },
+
+        -- Movement keys
+        { '<A-j>', name = 'Move line down', mode = { 'n', 'i', 'v' } },
+        { '<A-k>', name = 'Move line up', mode = { 'n', 'i', 'v' } },
+
+        -- Search
+        { '<Esc>', name = 'Clear search highlight', mode = 'n' },
+
+        -- New line
+        { '<CR>', name = 'New line below', mode = 'n' },
       }
     end,
   },
