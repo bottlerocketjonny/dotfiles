@@ -83,9 +83,9 @@ bindkey -v
 
 bindkey -s ^f "tmux-sessionizer\n"
 
-# fzf!
-source /usr/share/doc/fzf/examples/key-bindings.zsh
-source /usr/share/doc/fzf/examples/completion.zsh
+## fzf key bindings and completion
+source ~/.config/fzf/key-bindings.zsh
+source ~/.config/fzf/completion.zsh fzf!
 bindkey -s ^s "cd **  "
 
 #-------ALIASES-------#
@@ -96,9 +96,12 @@ alias gn='nvim +GNotes'
 alias config='$HOME/.config'
 alias nn='$HOME/scripts/new-note.sh'
 
-alias japeto='cd ~/code/work-projects/japeto && (tmux rename-window "nvim" && nvim . & tmux neww -n "git" & tmux neww -n "backend" -c ~/code/work-projects/japeto/backend & tmux neww -n "dashboard" -c ~/code/work-projects/japeto/dashboard-frontend & tmux neww -n "chatbot" -c ~/code/work-projects/japeto/chatbot-frontend)'
-# alias mvnlog="mvn spring-boot:run | grcat conf.log | fzf --tac --no-sort --exact --ansi --bind 'ctrl-p:toggle-preview' --preview 'echo {} | grep -C 10 {}' --preview-window 'right:50%:wrap:hidden'"
-alias mvnlog="mvn spring-boot:run | grcat conf.log | fzf --tac --no-sort --exact --ansi"
+alias japeto='cd ~/code/work-projects/japeto && \
+tmux rename-window "nvim" && tmux send-keys "nvim ." C-m && \
+tmux neww -n "backend" -c ~/code/work-projects/japeto/backend && \
+tmux neww -n "dashboard" -c ~/code/work-projects/japeto/dashboard-frontend && \
+tmux neww -n "chatbot" -c ~/code/work-projects/japeto/chatbot-frontend'
+alias mvnlog='mvn spring-boot:run | fzf --ansi --tail=100000 --tac --no-sort --exact --wrap --layout=reverse --border --info=inline --prompt="Spring Boot Logs > " --header="╱ CTRL-R (reload) ╱ CTRL-D (page down) ╱ CTRL-U (page up) ╱ CTRL-C (exit) ╱" --bind="ctrl-r:reload(mvn spring-boot:run)" --bind="ctrl-d:half-page-down" --bind="ctrl-u:half-page-up"'
 
 #---------------------#
 

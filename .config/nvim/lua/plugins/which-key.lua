@@ -20,6 +20,8 @@ return {
         { '<leader>w', group = '[W]indow splits' },
         { '<leader>t', group = '[T]ab/Test' },
         { '<leader>x', group = 'E[x]tra tools' },
+        { '<leader>p', group = '[P]rojects' },
+        { '<leader>v', group = '[V]ersion control (Git)' },
 
         -- Individual key bindings
         { '<leader>ch', name = 'Command history' },

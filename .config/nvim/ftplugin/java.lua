@@ -93,10 +93,10 @@ local config = {
       format = {
         enabled = true,
         -- Formatting works by default, but you can refer to a specific file/URL if you choose
-        -- settings = {
-        --   url = "https://github.com/google/styleguide/blob/gh-pages/intellij-java-google-style.xml",
-        --   profile = "GoogleStyle",
-        -- },
+        settings = {
+          url = vim.fn.expand("~/.config/nvim/google-java-style.xml"),
+          profile = "GoogleStyle",
+        }
       },
       completion = {
         favoriteStaticMembers = {
@@ -125,7 +125,11 @@ local config = {
         toString = {
           template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}",
         },
-        useBlocks = true,
+        hashCodeEquals = {
+          useInstanceof = true,    -- Use 'instanceof' for type comparisons
+          useJava7Objects = false, -- Avoid using 'Objects.hash' and 'Objects.equals'
+        },
+        useBlocks = true,          -- Use blocks in 'if' statements
       },
     },
   },

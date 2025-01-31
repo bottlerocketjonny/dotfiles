@@ -11,8 +11,8 @@ local function my_on_attach(bufnr)
   api.config.mappings.default_on_attach(bufnr)
 
   -- custom mappings
-  vim.keymap.set('n', '?',     api.tree.toggle_help,                  opts('Help'))
-  vim.keymap.set('n', 'l',    api.node.open.edit,                  opts('Open'))
+  vim.keymap.set('n', '?', api.tree.toggle_help, opts('Help'))
+  vim.keymap.set('n', 'l', api.node.open.edit, opts('Open'))
 end
 
 return {
@@ -23,16 +23,24 @@ return {
     'nvim-tree/nvim-web-devicons', -- Fancy icon support
   },
   opts = {
+    view = {
+      -- width = 200,
+      -- float = {
+      --   enable = true,
+      --   width = '100%',
+      -- }
+    },
     on_attach = my_on_attach,
     actions = {
       open_file = {
+        quit_on_open = true,
         window_picker = {
           enable = false
         },
       }
     },
   },
-  config = function (_, opts)
+  config = function(_, opts)
     -- Recommended settings to disable default netrw file explorer
     vim.g.loaded_netrw = 1
     vim.g.loaded_netrwPlugin = 1

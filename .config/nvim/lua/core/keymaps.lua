@@ -69,15 +69,19 @@ keymap.set("n", "<leader>tx", ":tabclose<CR>", { desc = 'Close tab' })
 keymap.set("n", "<leader>tn", ":tabn<CR>", { desc = 'Next tab' })
 keymap.set("n", "<leader>tp", ":tabp<CR>", { desc = 'Previous tab' })
 
--- Code actions
+-- Formatting
+-- TODO sort this better
 -----------------------------------------------------------------------------------------
+keymap.set('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', { desc = 'Code action' })
 keymap.set("n", "<leader>cr", ':w<CR>:call slime#send("gcc " . expand("%") . " -o " . expand("%:r") . " && ./" . expand("%:r") . "\\n")<CR>',
     { noremap = true, silent = true, desc = 'Compile and run C' })
 keymap.set('n', '<leader>cf', '<cmd>lua vim.lsp.buf.format({async = true})<CR>', { desc = 'Format code' })
 keymap.set('v', '<leader>cf', '<cmd>lua vim.lsp.buf.format({async = true})<CR>', { desc = 'Format selection' })
-keymap.set('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', { desc = 'Code action' })
 keymap.set('n', '<leader>cn', '<cmd>lua vim.diagnostic.goto_next()<CR>', { desc = 'Next diagnostic' })
 keymap.set('n', '<leader>cp', '<cmd>lua vim.diagnostic.goto_prev()<CR>', { desc = 'Previous diagnostic' })
+
+-- Refactoring
+keymap.set('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', { desc = 'Rename variables' })
 
 -- LSP navigation (Go to)
 -----------------------------------------------------------------------------------------
@@ -89,6 +93,7 @@ keymap.set('n', '<leader>gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>', { de
 keymap.set('n', '<leader>gr', '<cmd>lua vim.lsp.buf.references()<CR>', { desc = 'Go to references' })
 keymap.set('n', '<leader>gs', '<cmd>lua vim.lsp.buf.signature_help()<CR>', { desc = 'Show signature' })
 keymap.set('n', '<leader>gl', '<cmd>lua vim.diagnostic.open_float()<CR>', { desc = 'Show line diagnostics' })
+
 
 -- Go to URL under cursor using the system's default browser
 keymap.set('n', '<leader>gu', function()
@@ -168,8 +173,7 @@ keymap.set('n', '<leader>z?', 'z=', { desc = 'Suggest corrections' })
 -----------------------------------------------------------------------------------------
 keymap.set("n", "<leader>xr", ":call VrcQuery()<CR>", { desc = 'Run REST query' })
 keymap.set("n", "<leader>xa", ':ASToggle<CR>', { desc = 'Toggle autosave' })
-keymap.set("n", "<leader>xg", ":GitBlameToggle<CR>", { desc = 'Toggle git blame' })
-keymap.set("n", "<leader>xn", '<cmd>NoNeckPain<cr>', { desc = 'Toggle no neck pain' })
+keymap.set("n", "<leader>np", '<cmd>NoNeckPain<cr>', { desc = 'Toggle no neck pain' })
 keymap.set("n", "<leader>xm", ':set ma<CR>', { desc = 'Toggle modifiable' })
 keymap.set('n', '<leader>xh', ':<C-f>', { noremap = true, silent = true, desc = 'Command history' })
 
@@ -181,6 +185,48 @@ vim.keymap.set('i', '<A-j>', '<esc><cmd>m .+1<cr>==gi', { desc = 'Move line down
 vim.keymap.set('i', '<A-k>', '<esc><cmd>m .-2<cr>==gi', { desc = 'Move line up' })
 vim.keymap.set('v', '<A-j>', ":m '>+1<cr>gv=gv", { desc = 'Move selection down' })
 vim.keymap.set('v', '<A-k>', ":m '<-2<cr>gv=gv", { desc = 'Move selection up' })
+
+-- Git (LazyGit + Gitsigns)
+-----------------------------------------------------------------------------------------
+local gitsigns = require('gitsigns')
+
+-- LazyGit
+keymap.set('n', '<leader>vv', function() vim.cmd('LazyGit') end, { desc = 'Open LazyGit' })
+keymap.set('n', '<leader>vf', function() vim.cmd('LazyGitFilter') end, { desc = 'LazyGit file history' })
+keymap.set('n', '<leader>vc', function() vim.cmd('LazyGitConfig') end, { desc = 'LazyGit config' })
+
+-- Navigation between hunks
+keymap.set('n', ']c', function()
+    if vim.wo.diff then
+        vim.cmd.normal { ']c', bang = true }
+    else
+        gitsigns.nav_hunk('next')
+    end
+end, { desc = 'Next git change' })
+
+keymap.set('n', '[c', function()
+    if vim.wo.diff then
+        vim.cmd.normal { '[c', bang = true }
+    else
+        gitsigns.nav_hunk('prev')
+    end
+end, { desc = 'Previous git change' })
+
+-- Quick actions (inline)
+keymap.set('n', '<leader>vs', gitsigns.stage_hunk, { desc = 'Stage hunk' })
+keymap.set('n', '<leader>vr', gitsigns.reset_hunk, { desc = 'Reset hunk' })
+keymap.set('v', '<leader>vs', function()
+    gitsigns.stage_hunk { vim.fn.line('.'), vim.fn.line('v') }
+end, { desc = 'Stage hunk' })
+keymap.set('v', '<leader>vr', function()
+    gitsigns.reset_hunk { vim.fn.line('.'), vim.fn.line('v') }
+end, { desc = 'Reset hunk' })
+keymap.set('n', '<leader>vp', gitsigns.preview_hunk, { desc = 'Preview git changes' })
+keymap.set('n', '<leader>vb', gitsigns.blame_line, { desc = 'View git blame' })
+
+-- Toggles
+keymap.set('n', '<leader>tb', gitsigns.toggle_current_line_blame, { desc = 'Toggle git blame' })
+keymap.set('n', '<leader>td', gitsigns.preview_hunk_inline, { desc = 'Toggle git deleted' })
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
