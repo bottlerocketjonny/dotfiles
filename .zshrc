@@ -96,11 +96,68 @@ alias gn='nvim +GNotes'
 alias config='$HOME/.config'
 alias nn='$HOME/scripts/new-note.sh'
 
-alias japeto='cd ~/code/work-projects/japeto && \
-tmux rename-window "nvim" && tmux send-keys "nvim ." C-m && \
-tmux neww -n "backend" -c ~/code/work-projects/japeto/backend && \
-tmux neww -n "dashboard" -c ~/code/work-projects/japeto/dashboard-frontend && \
-tmux neww -n "chatbot" -c ~/code/work-projects/japeto/chatbot-frontend'
+sezen() {
+  cd ~/code/work-projects/pop-up-club || return
+  tmux new-session -d -s SEZEN -c ~/code/work-projects/pop-up-club/
+  tmux rename-window -t SEZEN:1 "nvim"
+  tmux send-keys -t SEZEN:1 "nvim ." C-m
+  tmux new-window -t SEZEN: -n "backend" -c ~/code/work-projects/pop-up-club/backend/
+  tmux new-window -t SEZEN: -n "frontend" -c ~/code/work-projects/pop-up-club/frontend/
+  tmux select-window -t SEZEN:1
+  if [ -n "$TMUX" ]; then
+    tmux switch-client -t SEZEN
+  else
+    tmux attach-session -t SEZEN
+  fi
+}
+
+onestep() {
+  cd ~/code/work-projects/onestep || return
+  tmux new-session -d -s ONESTEP -c ~/code/work-projects/onestep/recycling-app
+  tmux rename-window -t ONESTEP:1 "recycling-nvim"
+  tmux send-keys -t ONESTEP:1 "nvim ." C-m
+  tmux new-window -t ONESTEP: -n "recycling-backend" -c ~/code/work-projects/onestep/recycling-app/backend
+  tmux new-window -t ONESTEP: -n "recycling-frontend" -c ~/code/work-projects/onestep/recycling-app/frontend
+  tmux new-window -t ONESTEP: -n "rewards-nvim" -c ~/code/work-projects/onestep/rewards-app
+  tmux send-keys -t 'ONESTEP:rewards-nvim' "nvim ." C-m
+  tmux new-window -t ONESTEP: -n "rewards-backend" -c ~/code/work-projects/onestep/rewards-app/backend
+  tmux select-window -t ONESTEP:1
+  if [ -n "$TMUX" ]; then
+    tmux switch-client -t ONESTEP
+  else
+    tmux attach-session -t ONESTEP
+  fi
+}
+
+
+
+
+japeto() {
+  cd ~/code/work-projects/japeto || return
+  # Create a new detached tmux session named "japeto" with working directory set to the project root.
+  tmux new-session -d -s JAPETO -c ~/code/work-projects/japeto
+  # Rename the first window (index 1, because base-index is set to 1) to "nvim" and open nvim.
+  tmux rename-window -t JAPETO:1 "nvim"
+  tmux send-keys -t JAPETO:1 "nvim ." C-m
+  # Create additional windows in the session.
+  tmux new-window -t JAPETO: -n "backend" -c ~/code/work-projects/japeto/backend
+  tmux new-window -t JAPETO: -n "dashboard" -c ~/code/work-projects/japeto/dashboard-frontend
+  tmux new-window -t JAPETO: -n "chatbot" -c ~/code/work-projects/japeto/chatbot-frontend
+  tmux select-window -t JAPETO:1
+  if [ -n "$TMUX" ]; then
+    tmux switch-client -t JAPETO
+  else
+    tmux attach-session -t JAPETO
+  fi
+}
+
+
+# alias japeto='cd ~/code/work-projects/japeto && \
+# tmux rename-window "nvim" && tmux send-keys "nvim ." C-m && \
+# tmux neww -n "backend" -c ~/code/work-projects/japeto/backend && \
+# tmux neww -n "dashboard" -c ~/code/work-projects/japeto/dashboard-frontend && \
+# tmux neww -n "chatbot" -c ~/code/work-projects/japeto/chatbot-frontend'
+
 alias mvnlog='mvn spring-boot:run | fzf --ansi --tail=100000 --tac --no-sort --exact --wrap --layout=reverse --border --info=inline --prompt="Spring Boot Logs > " --header="╱ CTRL-R (reload) ╱ CTRL-D (page down) ╱ CTRL-U (page up) ╱ CTRL-C (exit) ╱" --bind="ctrl-r:reload(mvn spring-boot:run)" --bind="ctrl-d:half-page-down" --bind="ctrl-u:half-page-up"'
 
 #---------------------#

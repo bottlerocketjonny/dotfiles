@@ -24,7 +24,7 @@ return {
   },
   opts = {
     view = {
-      -- width = 200,
+      width = 70,
       -- float = {
       --   enable = true,
       --   width = '100%',

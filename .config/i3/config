@@ -112,11 +112,26 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+# JC setup OLD
+# set $alt_mon HDMI-1-0
+# set $main_mon eDP
+# exec_always --no-startup-id xrandr --output $main_mon --mode 1920x1080 --output $alt_mon --mode 2560x1440 --left-of $main_mon &
 
-exec_always --no-startup-id xrandr --output eDP --mode 1920x1080 --output HDMI-1-0 --auto --left-of eDP &
+# work/JC setup
+set $alt_mon HDMI-1-0
+set $main_mon eDP
+exec_always --no-startup-id xrandr --output $main_mon --mode 1920x1080 --output $alt_mon --auto --left-of $main_mon &
 
-# Define names for default workspaces for which we configure key bindings later on.
-# We use variables to avoid repeating the names in multiple places.
+# portable setup
+# set $alt_mon eDP
+# set $main_mon HDMI-1-0
+# exec_always --no-startup-id xrandr --output $main_mon --auto --output $alt_mon --mode 1920x1080 --right-of $main_mon &
+
+# Tim's setup
+# set $alt_mon eDP
+# set $main_mon DP-1-0
+# exec_always --no-startup-id xrandr --output $main_mon --mode 2560x1440 --output $alt_mon --mode 1920x1080 --below $main_mon &
+
 set $ws1 "1: browser"
 set $ws2 "2: terminal"
 set $ws3 "3: editor 1"
@@ -128,19 +143,18 @@ set $ws8 "8: pass / todo"
 set $ws9 "9: dev"
 set $ws10 "10: utils"
 
-# Assign workspaces to specific monitors
-workspace 1 output HDMI-1-0
-workspace 2 output HDMI-1-0
-workspace 3 output HDMI-1-0
-workspace 4 output eDP
-workspace 5 output HDMI-1-0
-workspace 6 output HDMI-1-0
-workspace 7 output eDP
-workspace 8 output eDP
-workspace 9 output eDP
-workspace 10 output eDP
+# Assign workspaces to specific monitors using variables
+workspace 1 output $alt_mon
+workspace 2 output $alt_mon
+workspace 3 output $alt_mon
+workspace 4 output $main_mon
+workspace 5 output $alt_mon
+workspace 6 output $alt_mon
+workspace 7 output $main_mon
+workspace 8 output $main_mon
+workspace 9 output $main_mon
+workspace 10 output $main_mon
 
-# switch to workspace
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
 bindsym $mod+3 workspace number $ws3
@@ -295,10 +309,10 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 
 bar {
-  output eDP-1
+  output $main_mon
   status_command i3status -c ~/.config/i3status/config
   position bottom
-  tray_output eDP-1
+  tray_output $main_mon
   colors {
       # background #222222
       # statusline #dddddd
@@ -312,10 +326,10 @@ bar {
 }
 
 bar {
-  output HDMI-1-0
+  output $alt_mon
   status_command i3status -c ~/.config/i3status/config
   position bottom
-  tray_output HDMI-1-0
+  tray_output $alt_mon
   colors {
       # background #222222
       # statusline #dddddd
@@ -328,22 +342,22 @@ bar {
   }
 }
 
-bar {
-  output eDP
-  status_command i3status -c ~/.config/i3status/config
-  position bottom
-  tray_output eDP
-  colors {
-      # background #222222
-      # statusline #dddddd
-      separator  #666666
+# bar {
+#   output $main_mon
+#   status_command i3status -c ~/.config/i3status/config
+#   position bottom
+#   tray_output $main_mon
+#   colors {
+#       # background #222222
+#       # statusline #dddddd
+#       separator  #666666
 
-      focused_workspace  #F88137 #F88137 #ffffff
-      active_workspace   #333333 #333333 #888888
-      inactive_workspace #333333 #333333 #888888
-      urgent_workspace   #2f343a #900000 #ffffff
-  }
-}
+#       focused_workspace  #F88137 #F88137 #ffffff
+#       active_workspace   #333333 #333333 #888888
+#       inactive_workspace #333333 #333333 #888888
+#       urgent_workspace   #2f343a #900000 #ffffff
+#   }
+# }
 
 # Lock computer
 bindsym $mod+shift+x exec i3lock

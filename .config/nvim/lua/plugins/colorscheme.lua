@@ -17,6 +17,20 @@ return {
       vim.cmd 'colorscheme gruvbox'
     end,
     opts = {},
+  },
+  {
+    'luisiacc/gruvbox-baby',
+    priority = 1000,
+    lazy = false,
+    config = function()
+      -- require('gruvbox-baby').setup {
+      -- }
+      -- Apply the gruvbox colorscheme
+      -- vim.cmd 'colorscheme gruvbox-baby'
+    end,
+    opts = {
+      background_color = 'dark'
+    },
   }
 }
 

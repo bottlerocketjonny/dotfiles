@@ -63,21 +63,27 @@ return {
             size = 0.10
           }
         },
-        size = 40,
+        size = 60,
         position = "left", -- Can be "left" or "right"
       },
       {
         elements = {
-          "repl",
-          "console",
+          {
+            id = "repl",
+            size = 0.3
+          },
+          {
+            id = "console",
+            size = 0.7
+          }
         },
-        size = 10,
+        size = 30,
         position = "bottom", -- Can be "bottom" or "top"
       }
     },
     mappings = {
       edit = "e",
-      expand = { "<CR>", "<2-LeftMouse>" },
+      expand = "l",
       open = "o",
       remove = "d",
       repl = "r",

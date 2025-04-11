@@ -30,6 +30,7 @@ keymap.set("n", "<leader>ef", ":NvimTreeFindFile<CR>", { desc = 'Find in explore
 -----------------------------------------------------------------------------------------
 local telescope = require('telescope.builtin')
 keymap.set('n', '<leader>sf', telescope.find_files, { desc = 'Search files' })
+keymap.set('n', '<leader>sc', telescope.colorscheme, { desc = 'Search colorscheme' })
 keymap.set('n', '<leader>sg', telescope.live_grep, { desc = 'Search by grep' })
 keymap.set('n', '<leader>sb', telescope.buffers, { desc = 'Search buffers' })
 keymap.set('n', '<leader>sh', telescope.help_tags, { desc = 'Search help' })
@@ -256,3 +257,9 @@ keymap.set("n", '<leader>tm', function()
         require('jdtls').test_nearest_method()
     end
 end, { desc = 'Test method' })
+
+
+vim.keymap.set('n', '<leader>ns', function()
+  vim.api.nvim_put({ '<!-- stop -->' }, 'l', true, true)
+end, { desc = 'Add next slide comment' })
+
