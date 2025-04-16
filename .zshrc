@@ -84,8 +84,11 @@ bindkey -v
 bindkey -s ^f "tmux-sessionizer\n"
 
 ## fzf key bindings and completion
-source ~/.config/fzf/key-bindings.zsh
-source ~/.config/fzf/completion.zsh fzf!
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# source ~/.config/fzf/key-bindings.zsh
+# source ~/.config/fzf/completion.zsh fzf!
+#
 bindkey -s ^s "cd **  "
 
 #-------ALIASES-------#
